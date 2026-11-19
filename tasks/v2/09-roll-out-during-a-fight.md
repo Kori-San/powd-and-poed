@@ -13,12 +13,12 @@ Zero-downtime deploys are the everyday form of high availability. Here you can w
 
 ## Steps
 
-- [ ] Make the fleet version visible: a pod label drives the paint of the fighter. Add the label to the Pod payload.
-- [ ] Add `make rollout`, which changes the version, and `make rollback`, which undoes it.
-- [ ] Bridge: stream the rollout status of the Deployment. Add read access to Deployments in `arena`, with a decision entry.
-- [ ] Game: fighters with the new paint replace the old ones in waves. A HUD line shows the progress.
-- [ ] Try a broken version with a bad image. The rollout must stall while old pods keep serving.
-- [ ] Add codex entries: rolling-update, rollback.
+1. [ ] Make the fleet version visible: a pod label drives the paint of the fighter. Add the label to the Pod payload.
+2. [ ] Add `make rollout`, which changes the version, and `make rollback`, which undoes it.
+3. [ ] Bridge: stream the rollout status of the Deployment. This needs read access to Deployments in `arena`. Update `ARCHITECTURE.md`, the simulator, and the contract tests.
+4. [ ] Game: fighters with the new paint replace the old ones in waves. A HUD line shows the progress.
+5. [ ] Try a broken version with a bad image. The rollout must stall while old pods keep serving.
+6. [ ] Add codex entries: rolling-update, rollback.
 
 ## Done when
 

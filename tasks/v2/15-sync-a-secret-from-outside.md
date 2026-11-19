@@ -13,13 +13,13 @@ Secrets do not belong in git. An ExternalSecret keeps the real value in a secret
 
 ## Steps
 
-- [ ] Pick a secret store that runs locally at no cost. Check the current options and record the choice.
-- [ ] Install External Secrets Operator. Add a `SecretStore` and an `ExternalSecret` (`external-secrets.io/v1`) in `arena` that produce a Secret named `cargo`.
-- [ ] Mount `cargo` into the fleet pods as a file.
-- [ ] Bridge: stream the sync status of the ExternalSecret, never the value. Add a kill route for the Secret.
-- [ ] RBAC in `arena`: read ExternalSecrets, and `delete` on Secrets limited by `resourceNames` to `cargo`. No `get` on Secrets.
-- [ ] Game: a courier carries a sealed crate. Shooting the crate deletes the Secret. A new courier arrives when the operator has recreated it.
-- [ ] Update the safety model in `ARCHITECTURE.md` and `.claude/rules/security.md`. Add a decision entry and codex entries: secret, externalsecret, secretstore.
+1. [ ] Pick a secret store that runs locally at no cost. Check the current options and record the choice.
+2. [ ] Install External Secrets Operator. Add a `SecretStore` and an `ExternalSecret` (`external-secrets.io/v1`) in `arena` that produce a Secret named `cargo`.
+3. [ ] Mount `cargo` into the fleet pods as a file.
+4. [ ] Bridge: stream the sync status of the ExternalSecret, never the value. Add a kill route for the Secret.
+5. [ ] RBAC in `arena`: read ExternalSecrets, and `delete` on Secrets limited by `resourceNames` to `cargo`. No `get` on Secrets.
+6. [ ] Game: a courier carries a sealed crate. Shooting the crate deletes the Secret. A new courier arrives when the operator has recreated it.
+7. [ ] Update the safety model in `ARCHITECTURE.md` and `.claude/rules/security.md`. Add a decision entry and codex entries: secret, externalsecret, secretstore.
 
 ## Done when
 

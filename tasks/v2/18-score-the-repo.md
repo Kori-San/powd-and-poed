@@ -1,6 +1,6 @@
 # v2-18 Score the repo
 
-Size: S
+Size: M
 Needs: v2-16
 
 ## Goal
@@ -13,12 +13,12 @@ Scorecard is an outside, automated review of the practices this repo claims to f
 
 ## Steps
 
-- [ ] Add the `ossf/scorecard-action` workflow with `publish_results: true`. Read its restrictions first: that workflow allows no `run` steps.
-- [ ] Read the report. Fix Token-Permissions, Pinned-Dependencies, Branch-Protection, Security-Policy, SAST, Signed-Releases, and Dependency-Update-Tool.
-- [ ] Add one Go fuzz test for the kill request parser, for the Fuzzing check.
-- [ ] Register for the OpenSSF Best Practices badge and answer the passing-level questions.
-- [ ] Add the Scorecard badge to the README. Keep the badge count at four or fewer.
-- [ ] List in `SECURITY.md` the checks that stay low and why. Code-Review and Contributors need more than one maintainer.
+1. [ ] Add the `ossf/scorecard-action` workflow with `publish_results: true`. Read its restrictions first: that workflow allows no `run` steps.
+2. [ ] Read the report. Fix Token-Permissions, Pinned-Dependencies, Branch-Protection, Security-Policy, SAST, Signed-Releases, and Dependency-Update-Tool.
+3. [ ] Add one Go fuzz test for the kill request parser, for the Fuzzing check.
+4. [ ] Register for the OpenSSF Best Practices badge and answer the passing-level questions.
+5. [ ] Add the Scorecard badge to the README. Keep the badge count at four or fewer.
+6. [ ] List in `SECURITY.md` the checks that stay low and why. Code-Review and Contributors need more than one maintainer.
 
 ## Done when
 

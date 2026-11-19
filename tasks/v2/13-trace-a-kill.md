@@ -13,13 +13,13 @@ Metrics say recovery got slower. A trace says which step took the time.
 
 ## Steps
 
-- [ ] Add OpenTelemetry to the bridge: HTTP server spans, Kubernetes client spans, and one span that ends when the replacement is ready.
-- [ ] Deploy an OpenTelemetry Collector and a trace backend. Pick the backend at task time and record the choice.
-- [ ] Accept a W3C `traceparent` header from the browser request.
-- [ ] Put the trace id in the bridge log lines.
-- [ ] Link from the Grafana dashboard to a trace.
-- [ ] Keep every kill trace locally. Sample them in public mode.
-- [ ] Add a codex entry: tracing.
+1. [ ] Add OpenTelemetry to the bridge: HTTP server spans, Kubernetes client spans, and one span that ends when the replacement is ready.
+2. [ ] Deploy an OpenTelemetry Collector and a trace backend. Pick the backend at task time and record the choice.
+3. [ ] Accept a W3C `traceparent` header from the browser request.
+4. [ ] Put the trace id in the bridge log lines.
+5. [ ] Link from the Grafana dashboard to a trace.
+6. [ ] Keep every kill trace locally. Sample them in public mode.
+7. [ ] Add a codex entry: tracing.
 
 ## Done when
 

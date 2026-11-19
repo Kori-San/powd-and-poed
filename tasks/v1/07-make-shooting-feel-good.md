@@ -13,13 +13,13 @@ Pillar two in `DESIGN.md` says feel comes first. A game that feels flat does not
 
 ## Steps
 
-- [ ] Add a muzzle flash and recoil on fire. Make bullets big and fast.
-- [ ] Add a hit flash on the fighter and a freeze of a few frames on a kill.
-- [ ] Add screen shake driven by one "trauma" value that decays over time. Cap it.
-- [ ] Add debris and smoke from pools. Wrecks stay on screen for a while.
-- [ ] Put every tuning value in one file, `feel.ts`.
-- [ ] Make `prefers-reduced-motion` turn off shake, freeze, and flashes.
-- [ ] Play ten sorties and tune. Then watch one other person play.
+1. [ ] Add a muzzle flash and recoil on fire. Make bullets big and fast.
+2. [ ] Add a hit flash on the fighter and a freeze of a few frames on a kill.
+3. [ ] Add screen shake driven by one "trauma" value that decays over time. Cap it.
+4. [ ] Add debris and smoke from pools. Wrecks stay on screen for a while.
+5. [ ] Put every tuning value in one file, `feel.ts`.
+6. [ ] Make `prefers-reduced-motion` turn off shake, freeze, and flashes.
+7. [ ] Play ten sorties and tune. Then watch one other person play.
 
 ## Done when
 
@@ -35,4 +35,4 @@ Pillar two in `DESIGN.md` says feel comes first. A game that feels flat does not
 
 ## Not now
 
-- Sound. That is v1-08.
+- Sound. That is v1-10.

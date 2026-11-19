@@ -1,6 +1,6 @@
 # v0-07 Kill a pod through the bridge
 
-Size: S
+Size: M
 Needs: v0-06
 
 ## Goal
@@ -13,12 +13,13 @@ This is the trigger the game will pull. It has to be safe before a browser can r
 
 ## Steps
 
-- [ ] Add `POST /api/kill` with the body `{"uid": "..."}`.
-- [ ] Look the UID up in the informer cache. Unknown UID returns 404. Already terminating returns 409.
-- [ ] Delete with a UID precondition, so a new pod that reuses the name is never hit.
-- [ ] Add one global rate limit. Start with 5 kills per second. Over the limit returns 429.
-- [ ] Log every kill with the pod name, the node, and the result.
-- [ ] Unit test the four outcomes: 202, 404, 409, 429.
+1. [ ] Add `POST /api/kill` with the body `{"uid": "..."}`. A bad body returns 400.
+2. [ ] Apply one global rate limit before anything else. Start with 5 requests per second. Over the limit returns 429.
+3. [ ] Look the UID up in the informer cache. An unknown UID returns 404.
+4. [ ] A pod that is terminating, or has a delete in flight, returns 409. Keep the in-flight UIDs in memory until the cache catches up.
+5. [ ] Delete with a UID precondition, so a new pod that reuses the name is never hit.
+6. [ ] Log every kill with the pod name, the node, and the result.
+7. [ ] Unit test the five outcomes: 202, 400, 404, 409, 429.
 
 ## Done when
 

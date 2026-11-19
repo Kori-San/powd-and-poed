@@ -1,7 +1,7 @@
 # v2-24 Write the runbook and run a game day
 
 Size: M
-Needs: v2-12, v2-22
+Needs: v2-12, v2-15, v2-21, v2-23
 
 ## Goal
 
@@ -13,11 +13,11 @@ A runbook nobody has followed is a guess. Running the failures turns it into a t
 
 ## Steps
 
-- [ ] Write `docs/RUNBOOK.md`: one section per alert, with the symptoms, the checks to run, and the fix.
-- [ ] Cover seven scenarios: bridge down, API server slow, fleet at zero, node lost, certificate expired, secret store down, abuse spike.
-- [ ] Trigger each scenario on the local or demo cluster. Follow the runbook as written. Fix it where it was wrong.
-- [ ] Link each alert to its runbook section.
-- [ ] Write one blameless postmortem of the most interesting scenario in `docs/postmortems/`, on one page.
+1. [ ] Write `docs/RUNBOOK.md`: one section per alert, with the symptoms, the checks to run, and the fix.
+2. [ ] Cover seven scenarios: bridge down, API server slow, fleet at zero, node lost, certificate expired, secret store down, abuse spike.
+3. [ ] Trigger each scenario on the local or demo cluster. Follow the runbook as written. Fix it where it was wrong.
+4. [ ] Link each alert to its runbook section.
+5. [ ] Write one blameless postmortem of the most interesting scenario in `docs/postmortems/`, on one page.
 
 ## Done when
 

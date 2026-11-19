@@ -13,19 +13,19 @@ The browser must never talk to the Kubernetes API. The bridge is the only door.
 
 ## Steps
 
-- [ ] Create the Go module in `bridge/` with a `/healthz` endpoint and JSON logs.
-- [ ] Connect to the cluster with client-go. Outside a cluster, refuse to start without a `--context` flag.
-- [ ] Start shared informers: pods in the `arena` namespace, and nodes.
-- [ ] Add `GET /api/stream` as Server-Sent Events. Send one `snapshot` event, then `pod` and `node` events. The shapes are in `ARCHITECTURE.md`.
-- [ ] Shut down cleanly on SIGTERM and close open streams.
-- [ ] Unit test the event mapping with the client-go fake clientset.
-- [ ] Add `make bridge-dev` that runs the bridge against `kind-powd`.
+1. [ ] Create the Go module in `bridge/` with `/healthz`, `/readyz`, and JSON logs.
+2. [ ] Connect to the cluster with client-go. Outside a cluster, refuse to start without a `--context` flag.
+3. [ ] Start shared informers: pods in the `arena` namespace, and nodes.
+4. [ ] Add `GET /api/stream` as Server-Sent Events. Send one `snapshot` event, then `pod` and `node` events. The shapes are in `ARCHITECTURE.md`.
+5. [ ] Shut down cleanly on SIGTERM and close open streams.
+6. [ ] Unit test the event mapping with the client-go fake clientset.
+7. [ ] Add `make bridge-dev` that runs the bridge against `kind-powd`. Add a CI job with golangci-lint, the tests, and govulncheck. Add `gomod` to `dependabot.yml`.
 
 ## Done when
 
 - [ ] `curl -N localhost:8080/api/stream` prints a snapshot with 12 pods and 4 nodes.
 - [ ] Delete a pod by hand. Within 2 seconds the stream shows that pod terminating and a new pod added.
-- [ ] `go test ./...` and `go vet ./...` pass in `bridge/`.
+- [ ] The three commands under "Before you commit" in `.claude/rules/bridge.md` pass.
 
 ## Learn
 

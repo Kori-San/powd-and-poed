@@ -9,20 +9,20 @@ GitHub Actions checks every pull request, `main` is protected, and Dependabot ke
 
 ## Why
 
-Hooks can be skipped. CI cannot. It is also the first thing a reviewer of this repo will open.
+A hook can be skipped, so CI runs the same checks where nobody can skip them.
 
 ## Steps
 
-- [ ] Read `.claude/rules/ci.md`. Every line of it applies here.
-- [ ] Add `.github/workflows/ci.yml` with four checks: text, pull request title, actionlint, zizmor.
-- [ ] Add `.github/dependabot.yml` for `github-actions`, with a 7 day cooldown and one group.
-- [ ] Decide whether to adopt workflow lockfiles (`gh actions-lock`). Record the choice in `docs/DECISIONS.md`.
-- [ ] Add `SECURITY.md`, `CODE_OF_CONDUCT.md` (Contributor Covenant 3.0), a pull request template, issue forms, and `.github/CODEOWNERS`.
-- [ ] In the repo settings, add the ruleset on `main` and turn on the features listed under "Repo settings" in `ci.md`.
+1. [ ] Read `.claude/rules/ci.md`. Every line of it applies here.
+2. [ ] Add `.github/workflows/ci.yml` with five checks: text, pull request title, actionlint, zizmor, and the manifests (kubeconform, kube-linter).
+3. [ ] Add `.github/dependabot.yml` for `github-actions`, with a 7 day cooldown and one group.
+4. [ ] Decide whether to adopt workflow lockfiles (`gh actions-lock`). Record the choice in `docs/DECISIONS.md`.
+5. [ ] Add `SECURITY.md`, `CODE_OF_CONDUCT.md` (Contributor Covenant 3.0), a pull request template, issue forms, and `.github/CODEOWNERS`.
+6. [ ] In the repo settings, add the ruleset on `main` and turn on the features listed under "Repo settings" in `ci.md`.
 
 ## Done when
 
-- [ ] A pull request shows the four checks, and they pass.
+- [ ] A pull request shows the five checks, and they pass.
 - [ ] A pull request titled "fix stuff" fails the title check.
 - [ ] `git push origin main` from your machine is rejected.
 - [ ] The Community Standards page of the repo shows every item ticked.

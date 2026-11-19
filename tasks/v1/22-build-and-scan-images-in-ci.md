@@ -13,13 +13,13 @@ Anyone can then check where an image came from. That is the base of supply-chain
 
 ## Steps
 
-- [ ] Add hadolint for both Dockerfiles.
-- [ ] Build with `docker/build-push-action`. Push to GHCR only from `main` and from tags.
-- [ ] Generate an SBOM and scan each image. Pick the scanner at task time: Grype, Trivy, or Docker Scout. Fail on fixable high or critical findings.
-- [ ] Attest the build provenance with `actions/attest`.
-- [ ] Add `npm`, `gomod`, `docker`, and `helm` to `dependabot.yml`.
-- [ ] Make sure the Go and web lint and test jobs exist. Add govulncheck.
-- [ ] The chart references released images by digest. `make demo` still builds locally.
+1. [ ] Check that hadolint covers both Dockerfiles.
+2. [ ] Build with `docker/build-push-action`. Push to GHCR only from `main` and from tags.
+3. [ ] Generate an SBOM and scan each image. Pick the scanner at task time: Grype, Trivy, or Docker Scout. Fail on fixable high or critical findings.
+4. [ ] Attest the build provenance with `actions/attest`.
+5. [ ] Check that `dependabot.yml` covers every ecosystem in the repo.
+6. [ ] Check that CodeQL default setup lists Go, JavaScript and TypeScript, and Actions.
+7. [ ] The chart references released images by digest. `make demo` still builds locally.
 
 ## Done when
 

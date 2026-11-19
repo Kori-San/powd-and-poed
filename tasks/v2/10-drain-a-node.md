@@ -13,13 +13,13 @@ Draining is how nodes are emptied before maintenance. It uses everything from v2
 
 ## Steps
 
-- [ ] Gate the feature: the bridge needs the flag `--allow-node-drain`, and only the local values file sets it.
-- [ ] RBAC, local values only: `patch` on nodes, for cordon. Add a decision entry and update `.claude/rules/security.md`.
-- [ ] Bridge: `POST /api/drain` cordons the node, then evicts its `arena` pods one by one within the budget. A timer uncordons it.
-- [ ] Game: a carrier becomes a boss with a health bar. At zero, the drain starts and its fighters leave as each eviction succeeds.
-- [ ] The carrier goes dark while cordoned and returns when uncordoned.
-- [ ] Update `ARCHITECTURE.md`, the simulator, and the contract tests.
-- [ ] Add codex entries: cordon, drain.
+1. [ ] Gate the feature: the bridge needs the flag `--allow-node-drain`, and only the local values file sets it.
+2. [ ] RBAC, local values only: `patch` on nodes, for cordon. Add a decision entry and update `.claude/rules/security.md`.
+3. [ ] Bridge: `POST /api/drain` cordons the node, then evicts its `arena` pods one by one within the budget. A timer uncordons it.
+4. [ ] Game: a carrier becomes a boss with a health bar. At zero, the drain starts and its fighters leave as each eviction succeeds.
+5. [ ] The carrier goes dark while cordoned and returns when uncordoned.
+6. [ ] Update `ARCHITECTURE.md`, the simulator, and the contract tests.
+7. [ ] Add codex entries: cordon, drain.
 
 ## Done when
 

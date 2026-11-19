@@ -13,13 +13,13 @@ The fleet has a written availability SLO, an error budget, and burn-rate alerts,
 
 ## Steps
 
-- [ ] Write `docs/SLO.md`: the indicator (good probe requests over all probe requests), the target, the window.
-- [ ] Add Prometheus recording rules for the indicator and for the remaining error budget.
-- [ ] Add a fast and a slow burn-rate alert. Route them to a local receiver.
-- [ ] Add a dashboard panel for the budget left in the window.
-- [ ] HUD: add `BUDGET` next to `UPTIME`, fed by the bridge from the same counters.
-- [ ] Game day: scale the fleet to zero for 30 seconds. Check that the alert fires and the budget drops as you predicted.
-- [ ] Add codex entries: slo, error-budget.
+1. [ ] Write `docs/SLO.md`: the indicator (good probe requests over all probe requests), the target, the window.
+2. [ ] Add Prometheus recording rules for the indicator and for the remaining error budget.
+3. [ ] Add a fast and a slow burn-rate alert. Route them to a local receiver.
+4. [ ] Add a dashboard panel for the budget left in the window.
+5. [ ] HUD: add `BUDGET` next to `UPTIME`, fed by the bridge from the same counters.
+6. [ ] Game day: scale the fleet to zero for 30 seconds. Check that the alert fires and the budget drops as you predicted.
+7. [ ] Add codex entries: slo, error-budget.
 
 ## Done when
 

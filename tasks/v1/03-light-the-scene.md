@@ -13,12 +13,12 @@ Lighting decides whether the game reads as a 1970s film or as a default three.js
 
 ## Steps
 
-- [ ] Pick three HDRI candidates on Poly Haven. Test each on a grey sphere and a chrome sphere. Keep one.
-- [ ] Load it with `HDRLoader` as `scene.environment`. Keep it out of `scene.background`.
-- [ ] Add the key light. Tune `scene.environmentIntensity` until shadows are almost black.
-- [ ] Build the star backdrop from NASA's Deep Star Maps 2020. Read the usage terms on its page first.
-- [ ] Compare AgX and ACES Filmic tone mapping on the same frame. Keep one. Record it in `docs/DECISIONS.md`.
-- [ ] Add film grain and halation as one final pass. Follow the strength rule in `DESIGN.md`.
+1. [ ] Pick three HDRI candidates on Poly Haven. Test each on a grey sphere and a chrome sphere. Keep one.
+2. [ ] Load it with `HDRLoader` as `scene.environment`. Keep it out of `scene.background`.
+3. [ ] Add the key light. Tune `scene.environmentIntensity` until shadows are almost black.
+4. [ ] Build the star backdrop from NASA's Deep Star Maps 2020. Read the usage terms on its page first.
+5. [ ] Compare AgX and ACES Filmic tone mapping on the same frame. Keep one. Record it in `docs/DECISIONS.md`.
+6. [ ] Add film grain and halation as one final pass. Follow the strength rule in `DESIGN.md`.
 
 ## Done when
 

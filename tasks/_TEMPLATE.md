@@ -13,8 +13,8 @@ One or two sentences. What it proves or unlocks.
 
 ## Steps
 
-- [ ] First step. Make it tiny so starting is easy.
-- [ ] At most seven steps. More than seven means two tasks.
+1. [ ] First step. Make it tiny so starting is easy.
+2. [ ] At most seven steps. More than seven means two tasks.
 
 ## Done when
 

@@ -13,12 +13,12 @@ One fixed quality level is too heavy for a cheap phone and wastes a good laptop.
 
 ## Steps
 
-- [ ] Define three tiers: resolution scale, final pass on or off, particle counts.
-- [ ] Pick the starting tier from a two second benchmark on first load. Do not read the user agent string.
-- [ ] Add dynamic resolution: lower the pixel count when frame time stays over budget, raise it when there is room.
-- [ ] Stop rendering when the tab is hidden.
-- [ ] Add a setting that locks a tier.
-- [ ] Recover from a lost WebGL context without a reload.
+1. [ ] Define three tiers: resolution scale, final pass on or off, particle counts.
+2. [ ] Pick the starting tier from a two second benchmark on first load. Do not read the user agent string.
+3. [ ] Add dynamic resolution: lower the pixel count when frame time stays over budget, raise it when there is room.
+4. [ ] Stop rendering when the tab is hidden.
+5. [ ] Add a setting that locks a tier.
+6. [ ] Recover from a lost WebGL context without a reload.
 
 ## Done when
 

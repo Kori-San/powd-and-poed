@@ -13,12 +13,12 @@ v1-22 recorded where images came from. A signature lets the cluster refuse anyth
 
 ## Steps
 
-- [ ] Sign images in CI with cosign in keyless mode. No private key exists anywhere.
-- [ ] Attach the SBOM as an attestation. Keep the provenance attestation from v1-22.
-- [ ] Move the image build into a reusable workflow. Read the current GitHub docs on what SLSA build level that gives.
-- [ ] Turn on immutable releases in the repo settings.
-- [ ] Document verification in `SECURITY.md`: the exact `cosign verify` and `gh attestation verify` commands.
-- [ ] Add codex entries: image-signature, sbom.
+1. [ ] Sign images in CI with cosign in keyless mode. No private key exists anywhere.
+2. [ ] Attach the SBOM as an attestation. Keep the provenance attestation from v1-22.
+3. [ ] Move the image build into a reusable workflow. Read the current GitHub docs on what SLSA build level that gives.
+4. [ ] Turn on immutable releases in the repo settings.
+5. [ ] Document verification in `SECURITY.md`: the exact `cosign verify` and `gh attestation verify` commands.
+6. [ ] Add codex entries: image-signature, sbom.
 
 ## Done when
 

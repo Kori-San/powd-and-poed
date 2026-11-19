@@ -13,13 +13,13 @@ It is the same idea as the game, one level up. Git holds the desired state, and 
 
 ## Steps
 
-- [ ] Choose Argo CD or Flux. Compare their current releases and what you want to learn. Record the choice.
-- [ ] Install it in `make cluster-up` and point it at this repo.
-- [ ] Define the applications: the game chart, the gateway, the observability stack.
-- [ ] Turn on automatic sync with self-heal and prune.
-- [ ] Remove `helm upgrade` from `make deploy`. A deploy is now a merge.
-- [ ] CI writes each new image digest into the values file through a pull request.
-- [ ] Add codex entries: gitops, reconciliation.
+1. [ ] Choose Argo CD or Flux. Compare their current releases and what you want to learn. Record the choice.
+2. [ ] Install it in `make cluster-up` and point it at this repo.
+3. [ ] Define one application per installed component: the game chart, the gateway, and any stack that other v2 tasks have added.
+4. [ ] Turn on automatic sync with self-heal and prune.
+5. [ ] Remove `helm upgrade` from `make deploy`. A deploy is now a merge.
+6. [ ] CI writes each new image digest into the values file through a pull request.
+7. [ ] Add codex entries: gitops, reconciliation.
 
 ## Done when
 

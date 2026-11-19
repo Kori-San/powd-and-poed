@@ -13,16 +13,16 @@ v0 proved the idea with throwaway code. Two players, enemy fire, and replays nee
 
 ## Steps
 
-- [ ] Define the entity state in `src/sim/` as plain data in fixed-size pools.
-- [ ] Write one system per file, each with tests: input, movement, enemy patterns, firing, collision, damage, sortie timer.
-- [ ] Fighters fly patterns and fire back. A player ship takes three hits, then restarts after two seconds.
-- [ ] A sortie lasts 90 seconds. Then the sim reports the stats listed in `DESIGN.md`.
-- [ ] The sim takes a random seed. The same seed and the same inputs give the same run.
+1. [ ] Define the entity state in `src/sim/` as plain data in fixed-size pools.
+2. [ ] Write one system per file, each with tests: input, movement, enemy patterns, firing, collision, damage, sortie timer.
+3. [ ] Fighters fly patterns and fire back. A player ship takes three hits, then restarts after two seconds.
+4. [ ] A sortie lasts 90 seconds. Then the sim reports the stats listed in `DESIGN.md`.
+5. [ ] The sim takes a random seed. The same seed and the same inputs give the same run.
 
 ## Done when
 
 - [ ] A test replays recorded inputs with a fixed seed twice and gets the same final state.
-- [ ] A 90 second sortie with held fire shows no sawtooth in the browser memory timeline.
+- [ ] A test runs 5400 sim steps with held fire, and no pool grows.
 - [ ] `npm test` passes in `web/`.
 
 ## Learn
@@ -34,5 +34,5 @@ v0 proved the idea with throwaway code. Two players, enemy fire, and replays nee
 
 ## Not now
 
-- Effects and sound. That is v1-07 and v1-08.
-- The second player. That is v1-10.
+- Effects and sound. That is v1-07 and v1-10.
+- The second player. That is v1-11.

@@ -13,13 +13,13 @@ You wrote every manifest by hand in v0. Helm adds values, versions, and rollback
 
 ## Steps
 
-- [ ] Add Helm to `mise.toml`. Read the Helm 4 notes in `.claude/rules/dependencies.md`.
-- [ ] Create `deploy/chart/`. Move the v0 manifests into templates. Keep names and labels unchanged.
-- [ ] Add values for replicas, images and digests, the rate limit, and resources. Comment each one. Add `values.schema.json`.
-- [ ] Add helm-unittest tests for the RBAC rules, the security context, and the replica count.
-- [ ] Add `make deploy` using `helm upgrade --install --rollback-on-failure`. Remove `arena-up` and `bridge-up`.
-- [ ] CI: `helm lint`, then render the chart and run kubeconform and kube-linter on the output.
-- [ ] Delete `deploy/arena/` and `deploy/bridge/`.
+1. [ ] Add Helm to `mise.toml` and `helm` to `dependabot.yml`. Read the Helm 4 notes in `.claude/rules/dependencies.md`.
+2. [ ] Create `deploy/chart/`. Move the v0 manifests into templates. Keep names and labels unchanged.
+3. [ ] Add values for replicas, images and digests, the rate limit, and resources. Comment each one. Add `values.schema.json`.
+4. [ ] Add helm-unittest tests for the RBAC rules, the security context, and the replica count.
+5. [ ] Add `make deploy` using `helm upgrade --install --rollback-on-failure`. Remove `arena-up` and `bridge-up`.
+6. [ ] CI: `helm lint`, then render the chart and run kubeconform and kube-linter on the output.
+7. [ ] Delete `deploy/arena/` and `deploy/bridge/`.
 
 ## Done when
 

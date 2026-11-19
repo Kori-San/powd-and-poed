@@ -9,17 +9,17 @@ Powd, Poed, the pod fighter, and the node carrier are real models in one shared 
 
 ## Why
 
-Mixed asset packs are the most common reason a small game looks cheap. One style pass fixes that.
+Mixed asset packs make a small game look cheap. One style pass fixes that.
 
 ## Steps
 
-- [ ] Shortlist CC0 kits, for example the Kenney Space Kit and the Quaternius ship packs. Read each license on its own page.
-- [ ] Build the four ships from kit parts. Powd and Poed must differ in silhouette.
-- [ ] Repaint everything to the palette in `DESIGN.md`. Write the final livery colors back into `DESIGN.md`.
-- [ ] Apply the shared wear textures. Pick one texel density and write it in `.claude/rules/assets.md`.
-- [ ] Run the models through `make assets`. Add the credits.
-- [ ] Replace the cubes and the cone. Draw fighters with `InstancedMesh`.
-- [ ] Give each ReplicaSet a squadron marking derived from its name.
+1. [ ] Shortlist CC0 kits, for example the Kenney Space Kit and the Quaternius ship packs. Read each license on its own page.
+2. [ ] Build the four ships from kit parts in Blender. Powd and Poed must differ in silhouette. Save the working files under `assets/work/`.
+3. [ ] Repaint everything to the palette in `DESIGN.md`. Write the final livery colors back into `DESIGN.md`.
+4. [ ] Build the shared wear textures from ambientCG materials and apply them. Pick one texel density and write it in `.claude/rules/assets.md`.
+5. [ ] Run the models through `make assets`. Add the credits.
+6. [ ] Replace the cubes and the cone. Draw fighters with `InstancedMesh`.
+7. [ ] Give each ReplicaSet a squadron marking derived from its name.
 
 ## Done when
 

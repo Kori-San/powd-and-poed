@@ -2,7 +2,7 @@
 
 You shoot a cube in the browser, a real pod dies, and the cluster brings it back.
 
-v0 has cubes, one player, a keyboard, and a local cluster. Nothing else.
+v0 has cubes, one player, a keyboard, and a local cluster, and nothing more.
 
 ## Board
 
@@ -12,7 +12,7 @@ v0 has cubes, one player, a keyboard, and a local cluster. Nothing else.
 - [ ] [v0-04 Guard the commits](04-guard-the-commits.md) (S)
 - [ ] [v0-05 Add CI and Dependabot](05-add-ci-and-dependabot.md) (M)
 - [ ] [v0-06 Stream the cluster](06-stream-the-cluster.md) (M)
-- [ ] [v0-07 Kill a pod through the bridge](07-kill-a-pod.md) (S)
+- [ ] [v0-07 Kill a pod through the bridge](07-kill-a-pod.md) (M)
 - [ ] [v0-08 Draw pods as cubes](08-draw-pods-as-cubes.md) (M)
 - [ ] [v0-09 Fly and shoot](09-fly-and-shoot.md) (M)
 - [ ] [v0-10 Run the bridge inside the cluster](10-run-bridge-in-cluster.md) (M)

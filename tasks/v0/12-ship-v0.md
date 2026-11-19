@@ -13,12 +13,12 @@ A demo nobody can run does not exist. This is the first thing you can show in an
 
 ## Steps
 
-- [ ] Add `make demo`: cluster up, arena up, bridge up, then start the web dev server and print the URL.
-- [ ] Add `make clean` that removes everything `make demo` created.
-- [ ] Rewrite the README quick start: what you need, `make demo`, what to look at. Under 20 lines.
-- [ ] Record a 20 second screen capture: the game on the left, `kubectl get pods -n arena -w` on the right. Put it at the top of the README.
-- [ ] Tag `v0.1.0` and publish a GitHub release with three lines of notes.
-- [ ] Sort `tasks/IDEAS.md`. Each idea becomes a task or gets deleted.
+1. [ ] Add `make demo`: cluster up, arena up, bridge up, then start the web dev server and print the URL.
+2. [ ] Add `make clean` that removes everything `make demo` created.
+3. [ ] Rewrite the README quick start: what you need, `make demo`, what to look at. Under 20 lines.
+4. [ ] Record a 20 second screen capture: the game on the left, `kubectl get pods -n arena -w` on the right. Put it at the top of the README.
+5. [ ] Tag `v0.1.0` and publish a GitHub release with three lines of notes.
+6. [ ] Sort `tasks/IDEAS.md`. Each idea becomes a task or gets deleted.
 
 ## Done when
 

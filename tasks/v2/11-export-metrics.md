@@ -13,12 +13,12 @@ The HUD shows the present. Metrics keep the history, and SLOs and alerts are bui
 
 ## Steps
 
-- [ ] Add `/metrics` to the bridge on its own port: kills by result, a recovery time histogram, stream clients, probe results.
-- [ ] Follow the Prometheus naming rules: base units, `_total` on counters, no pod names as labels.
-- [ ] Add `make observability-up`, which installs kube-prometheus-stack on the local cluster.
-- [ ] Add a ServiceMonitor for the bridge. Allow the scrape in the NetworkPolicy.
-- [ ] Build one Grafana dashboard. Store it as JSON in the chart.
-- [ ] Add codex entries: metrics, servicemonitor.
+1. [ ] Add `/metrics` to the bridge on its own port: kills by result, a recovery time histogram, stream clients, probe results.
+2. [ ] Follow the Prometheus naming rules: base units, `_total` on counters, no pod names as labels.
+3. [ ] Add `make observability-up`, which installs kube-prometheus-stack on the local cluster.
+4. [ ] Add a ServiceMonitor for the bridge. Allow the scrape in the NetworkPolicy.
+5. [ ] Build one Grafana dashboard. Store it as JSON in the chart.
+6. [ ] Add codex entries: metrics, servicemonitor.
 
 ## Done when
 

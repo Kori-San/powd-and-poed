@@ -1,6 +1,6 @@
 # v2-25 Ship v2
 
-Size: S
+Size: M
 Needs: every other v2 task
 
 ## Goal
@@ -13,12 +13,12 @@ The project exists to learn platform engineering and to prove it. This task pack
 
 ## Steps
 
-- [ ] Write `docs/TALKING-POINTS.md`: each concept the repo demonstrates, where it lives in the code, and a 30 second explanation in your own words.
-- [ ] Update the README: sim demo link, live demo instructions, architecture diagram, and the measured numbers.
-- [ ] Record a three minute video: two online players, a rollout, a node drain, the dashboards.
-- [ ] Tag `v2.0.0` with signed and attested images.
-- [ ] Sort `tasks/IDEAS.md` one last time.
-- [ ] Read the README as a recruiter with 30 seconds. Cut whatever slows down the first screen.
+1. [ ] Write `docs/TALKING-POINTS.md`: each concept the repo demonstrates, where it lives in the code, and a 30 second explanation in your own words.
+2. [ ] Update the README: sim demo link, live demo instructions, architecture diagram, and the measured numbers.
+3. [ ] Record a three minute video: two online players, a rollout, a node drain, the dashboards.
+4. [ ] Tag `v2.0.0` with signed and attested images.
+5. [ ] Sort `tasks/IDEAS.md` one last time.
+6. [ ] Read the README as a recruiter with 30 seconds. Cut whatever slows down the first screen.
 
 ## Done when
 

@@ -1,7 +1,7 @@
-# v1-12 Add the scanner
+# v1-13 Add the scanner
 
 Size: L
-Needs: v1-11
+Needs: v1-11, v1-12
 
 ## Goal
 
@@ -13,13 +13,13 @@ This is learning mode. It turns a target into a labeled Kubernetes object the pl
 
 ## Steps
 
-- [ ] Add `restarts` to the Pod payload in the bridge and in `ARCHITECTURE.md`.
-- [ ] Scan input: while held, the sim runs at 20% speed. The cluster stream stays in real time.
-- [ ] Pick the target: the fighter or carrier nearest to the player's aim line.
-- [ ] Draw the data card in the scanner color: kind, name, node, phase, age, restarts.
-- [ ] Reserve two text lines on the card for the codex: what it is, and why it came back.
-- [ ] Scanning a carrier shows the node card: name, ready or not, pods on it.
-- [ ] With two players, each has their own scan and their own card side.
+1. [ ] Add `restarts` to the Pod payload in the bridge and in `ARCHITECTURE.md`.
+2. [ ] Scan input: while held, the sim runs at 20% speed. The cluster stream stays in real time.
+3. [ ] Add the relay beacon, a fixed object that stands for the `fleet` Service. The scan target is the fighter, carrier, or beacon nearest to the player's aim line.
+4. [ ] Draw the data card in the scanner color: kind, name, node, phase, age, restarts.
+5. [ ] Reserve two text lines on the card for the codex: what it is, and why it came back.
+6. [ ] A carrier shows the node card: name, ready or not, pods on it. The beacon shows the Service card: ready pods behind it, and uptime.
+7. [ ] With two players, each has their own scan and their own card side.
 
 ## Done when
 
@@ -35,4 +35,4 @@ This is learning mode. It turns a target into a labeled Kubernetes object the pl
 
 ## Not now
 
-- Codex text and unlocks. That is v1-13.
+- Codex text and unlocks. That is v1-14.

@@ -13,17 +13,17 @@ Rules in a document depend on people reading them. Rules at admission apply to e
 
 ## Steps
 
-- [ ] Choose the engine. Candidates: the built-in ValidatingAdmissionPolicy for field rules, Kyverno for signature checks. Check what each can do today. Record the choice.
-- [ ] Policy: images in `powd` and `arena` must be signed by this repo's release workflow.
-- [ ] Policy: no `latest` tag, a digest is required, resource requests are required.
-- [ ] Local builds are unsigned. Add a dev values file that relaxes only the signature policy, and use it only on `kind-powd`.
-- [ ] Start in audit mode. Fix the findings. Then switch to enforce.
-- [ ] Test the policies in CI against good and bad manifests.
-- [ ] Add codex entries: admission-control, policy.
+1. [ ] Choose the engine. Candidates: the built-in ValidatingAdmissionPolicy for field rules, Kyverno for signature checks. Check what each can do today. Record the choice.
+2. [ ] Policy: images in `powd` must be signed by this repo's release workflow. The podinfo image in `arena` is allowed by its pinned digest.
+3. [ ] Policy: no `latest` tag, a digest is required, resource requests are required.
+4. [ ] Local builds are unsigned. Add a dev values file that relaxes only the signature policy, and use it only on `kind-powd`.
+5. [ ] Start in audit mode. Fix the findings. Then switch to enforce.
+6. [ ] Test the policies in CI against good and bad manifests.
+7. [ ] Add codex entries: admission-control, policy.
 
 ## Done when
 
-- [ ] `kubectl run bad --image=nginx:latest -n arena` is denied, and the message names the policy.
+- [ ] A test pod that meets the restricted standard but uses a `latest` tag is denied, and the message names the policy.
 - [ ] The released chart installs cleanly with every policy enforcing.
 - [ ] The policy tests run in CI.
 

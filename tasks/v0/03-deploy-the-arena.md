@@ -13,11 +13,12 @@ This is the first real win. You delete a pod by hand and watch Kubernetes replac
 
 ## Steps
 
-- [ ] Write `deploy/arena/namespace.yaml` for the namespace `arena`.
-- [ ] Write `deploy/arena/deployment.yaml`: a Deployment named `fleet`, 12 replicas, image `ghcr.io/stefanprodan/podinfo` pinned by tag and digest.
-- [ ] Give the container a readiness probe, a liveness probe, and CPU and memory requests and limits. Take the port and probe paths from the podinfo README.
-- [ ] Write `deploy/arena/service.yaml`: a ClusterIP Service named `fleet` that selects those pods.
-- [ ] Add `make arena-up` and `make arena-down`.
+1. [ ] Write `deploy/arena/namespace.yaml` for the namespace `arena`.
+2. [ ] Write `deploy/arena/deployment.yaml`: a Deployment named `fleet`, 12 replicas, image `ghcr.io/stefanprodan/podinfo` pinned by tag and digest.
+3. [ ] Give the container a readiness probe and a liveness probe. Take the port and probe paths from the podinfo README.
+4. [ ] Add CPU and memory requests, a memory limit, and the security context from `.claude/rules/kubernetes.md`.
+5. [ ] Write `deploy/arena/service.yaml`: a ClusterIP Service named `fleet` that selects those pods.
+6. [ ] Add `make arena-up` and `make arena-down`.
 
 ## Done when
 

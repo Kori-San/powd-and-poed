@@ -13,13 +13,13 @@ Delete ignores disruption budgets. Eviction respects them. Feeling that differen
 
 ## Steps
 
-- [ ] Add a PodDisruptionBudget (`policy/v1`) for the fleet with `minAvailable`.
-- [ ] Bridge: add `POST /api/evict`, which creates an Eviction for the pod. The API answers 429 when the budget blocks it.
-- [ ] RBAC in `arena`: `create` on `pods/eviction`, and read access to PodDisruptionBudgets. Add a decision entry.
-- [ ] Game: add the evict weapon. A blocked eviction shows a shield flare on the fighter and a callout.
-- [ ] HUD: show how many disruptions the budget allows right now.
-- [ ] Update `ARCHITECTURE.md`, the simulator, and the contract tests.
-- [ ] Add codex entries: pod-disruption-budget, eviction.
+1. [ ] Add a PodDisruptionBudget (`policy/v1`) for the fleet with `minAvailable`.
+2. [ ] Bridge: add `POST /api/evict`, which creates an Eviction for the pod. The API answers 429 when the budget blocks it.
+3. [ ] RBAC in `arena`: `create` on `pods/eviction`, and read access to PodDisruptionBudgets. Add a decision entry.
+4. [ ] Game: add the evict weapon. A blocked eviction shows a shield flare on the fighter and a callout.
+5. [ ] HUD: show how many disruptions the budget allows right now.
+6. [ ] Update `ARCHITECTURE.md`, the simulator, and the contract tests.
+7. [ ] Add codex entries: pod-disruption-budget, eviction.
 
 ## Done when
 

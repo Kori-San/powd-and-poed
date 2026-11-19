@@ -13,11 +13,11 @@ Pinned tools make the project run the same way on your laptop, in CI, and for an
 
 ## Steps
 
-- [ ] Install mise: https://mise.jdx.dev
-- [ ] Add `mise.toml` that pins Node, Go, kubectl, and kind. Look up the current stable versions first. Commit `mise.lock` too.
-- [ ] Add a `Makefile` with a `help` target that prints each target and its one-line description.
-- [ ] Add `make check` that runs `node scripts/check-text.mjs`.
-- [ ] Add a "Quick start" section to the README with `mise install` and `make help`.
+1. [ ] Install mise: https://mise.jdx.dev
+2. [ ] Add `mise.toml` that pins Node, Go, kubectl, and kind. Look up the current stable versions first. Commit `mise.lock` too.
+3. [ ] Add a `Makefile` with a `help` target that prints each target and its one-line description.
+4. [ ] Add `make check` that runs `node scripts/check-text.mjs`.
+5. [ ] Add a "Quick start" section to the README with `mise install` and `make help`.
 
 ## Done when
 

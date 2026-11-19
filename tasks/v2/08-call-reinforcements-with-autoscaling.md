@@ -13,12 +13,13 @@ A fixed replica count is a guess. Autoscaling lets the cluster answer load by it
 
 ## Steps
 
-- [ ] Install metrics-server in `make cluster-up`. Note in a comment which flag kind needs and why it is for local use only.
-- [ ] Add an HPA (`autoscaling/v2`) for the fleet: a CPU target, min 12, max 30, and a scale-down stabilization window.
-- [ ] Remove the fixed `replicas` from the Deployment template, so Helm does not fight the HPA.
-- [ ] Add `make load`, which starts a load generator Job against the fleet Service.
-- [ ] Game: new fighters warp in as the HPA scales up. The HUD shows current and desired replicas.
-- [ ] Add codex entries: hpa, metrics-server.
+1. [ ] Install metrics-server in `make cluster-up`. Note in a comment which flag kind needs and why it is for local use only.
+2. [ ] Add an HPA (`autoscaling/v2`) for the fleet: a CPU target, min 12, max 30, and a scale-down stabilization window.
+3. [ ] Remove the fixed `replicas` from the Deployment template, so Helm does not fight the HPA.
+4. [ ] Add `make load`, which starts a load generator Job against the fleet Service.
+5. [ ] Bridge: stream the current and desired replica counts. This needs read access to Deployments in `arena` and a decision entry. Update `ARCHITECTURE.md`, the simulator, and the contract tests.
+6. [ ] Game: new fighters warp in as the HPA scales up. The HUD shows current and desired replicas.
+7. [ ] Add codex entries: hpa, metrics-server.
 
 ## Done when
 

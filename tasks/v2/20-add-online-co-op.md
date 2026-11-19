@@ -13,18 +13,18 @@ Powd and Poed should not need to sit at the same keyboard. Both already see the 
 
 ## Steps
 
-- [ ] Design first, in `ARCHITECTURE.md`: rooms, what the bridge relays, what stays local, how kills are credited.
-- [ ] Bridge: rooms with a short code and two seats. Relay player state at a fixed rate.
-- [ ] The bridge has two replicas. Both players of a room must reach the same one, or rooms must work across replicas. Pick one and record it.
-- [ ] Client: draw the remote player with interpolation and a small delay buffer.
-- [ ] Join flow: create a room, share the code or link, the second player becomes Poed.
-- [ ] Handle a player leaving, a reconnect, and a full room.
-- [ ] Online co-op is live mode only. Say so in the menu when in sim mode.
+1. [ ] Design first, in `ARCHITECTURE.md`: rooms, what the bridge relays, what stays local, how kills are credited.
+2. [ ] Bridge: rooms with a short code and two seats. Relay player state at a fixed rate.
+3. [ ] The bridge has two replicas. Both players of a room must reach the same one, or rooms must work across replicas. Pick one and record it.
+4. [ ] Client: draw the remote player with interpolation and a small delay buffer.
+5. [ ] Join flow: create a room, share the code or link, the second player becomes Poed.
+6. [ ] Handle a player leaving, a reconnect, and a full room.
+7. [ ] Online co-op is live mode only. Say so in the menu when in sim mode.
 
 ## Done when
 
-- [ ] Two phones on different networks finish a sortie together.
-- [ ] A kill by either player shows for both within 200 ms on a normal connection.
+- [ ] Two devices on your local network finish a sortie together against `kind-powd`.
+- [ ] A kill by either player shows on both screens.
 - [ ] One player dropping does not end the sortie for the other.
 - [ ] Tests cover joining, leaving, and a full room.
 

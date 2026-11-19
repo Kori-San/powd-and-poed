@@ -1,6 +1,6 @@
 # v2-05 Try WebGPU
 
-Size: M
+Size: L
 Needs: v2-02
 
 ## Goal
@@ -13,12 +13,12 @@ three.js is moving toward WebGPU. An experiment with numbers is worth more than 
 
 ## Steps
 
-- [ ] Read the current three.js WebGPU manual page and the migration guide. List what the game uses that WebGPU lacks.
-- [ ] On a branch, run the benchmark scene on `WebGPURenderer` behind `?renderer=webgpu`.
-- [ ] Port the final pass to the node-based pipeline if the experiment needs it.
-- [ ] Measure on the three devices. Check which browsers of your audience support WebGPU today.
-- [ ] Write the result in `docs/DECISIONS.md`: adopt, keep as an option, or drop. Include the numbers.
-- [ ] Stop after one day of work, whatever the state.
+1. [ ] Read the current three.js WebGPU manual page and the migration guide. List what the game uses that WebGPU lacks.
+2. [ ] On a branch, run the benchmark scene on `WebGPURenderer` behind `?renderer=webgpu`.
+3. [ ] Port the final pass to the node-based pipeline if the experiment needs it.
+4. [ ] Measure on the three devices. Check which browsers of your audience support WebGPU today.
+5. [ ] Write the result in `docs/DECISIONS.md`: adopt, keep as an option, or drop. Include the numbers.
+6. [ ] Stop after one day of work, whatever the state.
 
 ## Done when
 

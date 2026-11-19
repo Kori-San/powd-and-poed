@@ -36,6 +36,7 @@ Sizes assume one person who is learning as they go.
 ## House rules
 
 - One task in progress at a time.
+- Commands in tasks assume your kubectl context is `kind-powd`. Check with `kubectl config current-context`.
 - A new idea goes into [IDEAS.md](IDEAS.md) as one line. Then go back to the task.
 - Each task ends with an "Explain it back" question. Answer it out loud or in writing. It is interview practice.
 - The v1 and v2 tasks were written before any code existed. Re-read a task before you start it, and fix it if the code has moved on.

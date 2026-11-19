@@ -1,7 +1,7 @@
 # v1-16 Simulate a cluster in the browser
 
 Size: M
-Needs: v1-12
+Needs: v1-13
 
 ## Goal
 
@@ -13,12 +13,12 @@ A live cluster costs money to host. The simulator lets anyone play from a free s
 
 ## Steps
 
-- [ ] Define a `ClusterSource` interface in `src/net/`: subscribe to events, send a kill.
-- [ ] Move the bridge client behind that interface.
-- [ ] Write `SimCluster`: nodes, a Deployment with replicas, pods with phases, a controller loop, and an uptime probe.
-- [ ] Measure the real delays on `kind-powd`: schedule, start, ready, terminate. Use them in the simulator, with the date in a comment.
-- [ ] Write one contract test suite that runs against both sources.
-- [ ] Show `SIM` on the HUD. Say on the title screen that the cluster is simulated.
+1. [ ] Define a `ClusterSource` interface in `src/net/`: subscribe to events, send a kill.
+2. [ ] Move the bridge client behind that interface.
+3. [ ] Write `SimCluster`: nodes, a Deployment with replicas, pods with phases, a controller loop, and an uptime probe.
+4. [ ] Measure the real delays on `kind-powd`: schedule, start, ready, terminate. Use them in the simulator, with the date in a comment.
+5. [ ] Write one contract test suite that runs against both sources.
+6. [ ] Show `SIM` on the HUD. Say on the title screen that the cluster is simulated.
 
 ## Done when
 

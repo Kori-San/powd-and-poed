@@ -13,11 +13,11 @@ Every later task needs a cluster. Several nodes let the game show pods spread ac
 
 ## Steps
 
-- [ ] Check that Docker is running: `docker info`.
-- [ ] Write `deploy/kind/cluster.yaml`: one control-plane node, three workers.
-- [ ] Pin the node image by sha256 digest. Copy it from the release notes of the kind version in `mise.toml`.
-- [ ] Add `cluster-up` and `cluster-down` to the Makefile. The cluster is named `powd`.
-- [ ] Make every `kubectl` call in the Makefile pass `--context kind-powd`.
+1. [ ] Check that Docker is running: `docker info`.
+2. [ ] Write `deploy/kind/cluster.yaml`: one control-plane node, three workers.
+3. [ ] Pin the node image by sha256 digest. Copy it from the release notes of the kind version in `mise.toml`.
+4. [ ] Add `cluster-up` and `cluster-down` to the Makefile. The cluster is named `powd`.
+5. [ ] Make every `kubectl` call in the Makefile pass `--context kind-powd`.
 
 ## Done when
 

@@ -13,12 +13,12 @@ Every visual task after this one builds on it. A color or timing mistake here sh
 
 ## Steps
 
-- [ ] Read `.claude/rules/web.md`: "Game loop", "Color and light", and "Sizing".
-- [ ] Split the v0 code into `src/sim/`, `src/render/`, `src/net/`, `src/hud/`, and `src/input/`.
-- [ ] Add the fixed-step loop with interpolation. Unit test the accumulator.
-- [ ] Configure the renderer in one place: tone mapping, output color space, drawing-buffer size with a pixel cap.
-- [ ] Add a dev overlay behind `?debug` that shows frame time and `renderer.info`.
-- [ ] Add Biome with `npm run lint`. Add the web checks to CI.
+1. [ ] Read `.claude/rules/web.md`: "Game loop", "Color and light", and "Sizing".
+2. [ ] Split the v0 code into `src/sim/`, `src/render/`, `src/net/`, `src/hud/`, and `src/input/`.
+3. [ ] Add the fixed-step loop with interpolation. Unit test the accumulator.
+4. [ ] Configure the renderer in one place: tone mapping, output color space, drawing-buffer size with a pixel cap.
+5. [ ] Add a dev overlay behind `?debug` that shows frame time and `renderer.info`.
+6. [ ] Check that CI still runs typecheck, lint, and tests on the new layout.
 
 ## Done when
 

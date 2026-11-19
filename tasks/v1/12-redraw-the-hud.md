@@ -1,7 +1,7 @@
-# v1-11 Redraw the HUD
+# v1-12 Redraw the HUD
 
 Size: M
-Needs: v1-06
+Needs: v1-06, v1-09
 
 ## Goal
 
@@ -13,12 +13,13 @@ The HUD carries the proof: pods, nodes, uptime. It is also where a game most oft
 
 ## Steps
 
-- [ ] Find five reference images of real vector and radar displays of the era. Link them in the pull request.
-- [ ] Confirm the two typefaces in `DESIGN.md`, or replace them. Self-host the `.woff2` files with their license.
-- [ ] Build the HUD in DOM and CSS: pods ready, nodes ready, uptime, recovery, kills, and `LIVE` or `SIM`.
-- [ ] Use one line weight, one color per layer, and fixed-width digits.
-- [ ] Design four connection states: connecting, live, reconnecting, disconnected.
-- [ ] Check size and contrast on a phone outdoors.
+1. [ ] Find five reference images of real vector and radar displays of the era. Link them in the pull request.
+2. [ ] Confirm the two typefaces in `DESIGN.md`, or replace them. Self-host the `.woff2` files with their license.
+3. [ ] Build the HUD in DOM and CSS: pods ready, nodes ready, uptime, recovery, kills, and `LIVE` or `SIM`.
+4. [ ] Use one line weight, one color per layer, and fixed-width digits.
+5. [ ] Design four connection states: connecting, live, reconnecting, disconnected.
+6. [ ] Restyle the menus from v1-09 with the same type, line weight, and colors.
+7. [ ] Check size and contrast on a phone outdoors.
 
 ## Done when
 
@@ -35,4 +36,4 @@ The HUD carries the proof: pods, nodes, uptime. It is also where a game most oft
 
 ## Not now
 
-- The scanner layer. That is v1-12.
+- The scanner layer. That is v1-13.

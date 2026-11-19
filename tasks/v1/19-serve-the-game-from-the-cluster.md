@@ -13,19 +13,19 @@ Until now the game ran from a dev server on your laptop. A real deployment serve
 
 ## Steps
 
-- [ ] Write `web/Dockerfile`: a build stage, then an unprivileged static server. Follow `.claude/rules/containers.md`.
-- [ ] Add the web Deployment and Service to the chart, in `powd`, with two replicas.
-- [ ] Pick a Gateway API implementation. Candidates: Envoy Gateway, NGINX Gateway Fabric, Traefik. Record the choice in `docs/DECISIONS.md`.
-- [ ] Install the Gateway API CRDs (Standard channel) and the implementation in `make cluster-up`.
-- [ ] Add a `Gateway` and two `HTTPRoute` objects: `/api` to the bridge, `/` to the web. Make sure the event stream is not buffered or cut by a timeout.
-- [ ] Map a host port to the gateway in the kind config. `make demo` prints the URL.
-- [ ] Add codex entries: gateway, httproute.
+1. [ ] Write `web/Dockerfile`: a build stage, then an unprivileged static server. Follow `.claude/rules/containers.md`.
+2. [ ] Add the web Deployment and Service to the chart, in `powd`, with two replicas.
+3. [ ] Pick a Gateway API implementation. Candidates: Envoy Gateway, NGINX Gateway Fabric, Traefik. Record the choice in `docs/DECISIONS.md`.
+4. [ ] Install the Gateway API CRDs (Standard channel) and the implementation in `make cluster-up`. Give kubeconform their schemas with `-schema-location`.
+5. [ ] Add a `Gateway` and two `HTTPRoute` objects: `/api` to the bridge, `/` to the web. Make sure the event stream is not buffered or cut by a timeout.
+6. [ ] Map a host port to the gateway in the kind config. `make demo` prints the URL.
+7. [ ] Add codex entries: gateway, httproute.
 
 ## Done when
 
 - [ ] After `make demo`, the game is playable at the printed URL with no port-forward and no dev server.
 - [ ] The event stream stays open for 10 minutes through the gateway.
-- [ ] `kubectl get gateway,httproute -A` shows the gateway programmed and both routes accepted.
+- [ ] `kubectl get gateway -n powd` shows `PROGRAMMED` as `True`. `kubectl describe httproute -n powd` shows `Accepted` as `True` for both routes.
 
 ## Learn
 

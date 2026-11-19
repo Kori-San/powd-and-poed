@@ -13,13 +13,13 @@ Clean rights and small files are easy to enforce from the first asset and painfu
 
 ## Steps
 
-- [ ] Read `.claude/rules/assets.md`.
-- [ ] Define `assets/manifest.json`: id, source URL, license, sha256, processing steps, output path.
-- [ ] Write `scripts/assets.mjs`: download to `assets-src/`, verify the sha256, optimize, write to `web/public/assets/`.
-- [ ] Add glTF Transform and the KTX2 tools as pinned dev dependencies.
-- [ ] Write `scripts/check-credits.mjs`: every file under `web/public/assets/` has a manifest entry and a `CREDITS.md` row.
-- [ ] Run one real asset through the pipeline: a Poly Haven HDRI.
-- [ ] Add `make assets`. Add the credits check to `make check` and to CI.
+1. [ ] Read `.claude/rules/assets.md`.
+2. [ ] Define `assets/manifest.json`: id, source URL, license, sha256, processing steps, output path.
+3. [ ] Write `scripts/assets.mjs`: download to `assets-src/`, verify the sha256, optimize, write to `web/public/assets/`.
+4. [ ] Add glTF Transform and the KTX2 tools as pinned dev dependencies.
+5. [ ] Write `scripts/check-credits.mjs`: every file under `web/public/assets/` has a manifest entry and a `CREDITS.md` row.
+6. [ ] Run one real asset through the pipeline: a Poly Haven HDRI.
+7. [ ] Add `make assets`. Add the credits check to `make check` and to CI.
 
 ## Done when
 
@@ -35,4 +35,4 @@ Clean rights and small files are easy to enforce from the first asset and painfu
 
 ## Not now
 
-- Choosing the final ships and sounds. That is v1-04 and v1-08.
+- Choosing the final ships and sounds. That is v1-04 and v1-10.

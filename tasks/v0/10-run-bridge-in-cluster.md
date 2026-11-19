@@ -1,7 +1,7 @@
 # v0-10 Run the bridge inside the cluster
 
 Size: M
-Needs: v0-07
+Needs: v0-09
 
 ## Goal
 
@@ -9,24 +9,24 @@ The bridge runs as a pod with its own identity. It can delete pods in `arena` an
 
 ## Why
 
-Running with your admin kubeconfig proves nothing. Least privilege is the part a platform engineer gets hired for.
+Running with your admin kubeconfig proves nothing about safety. Least privilege is a core skill of platform work, and this task is where the repo shows it.
 
 ## Steps
 
-- [ ] Write `bridge/Dockerfile`: multi-stage build, static binary, distroless non-root base, base images pinned by digest.
-- [ ] Write `deploy/bridge/`: the namespace `powd`, a ServiceAccount, a Deployment, and a Service.
-- [ ] Add a Role in `arena` that allows `get`, `list`, `watch`, `delete` on pods. Bind it to the ServiceAccount.
-- [ ] Add a ClusterRole that allows `get`, `list`, `watch` on nodes. Bind it to the ServiceAccount.
-- [ ] Set the security context: non-root, read-only root filesystem, no privilege escalation, all capabilities dropped, `RuntimeDefault` seccomp.
-- [ ] Add `make bridge-up`: build the image, `kind load docker-image`, apply, wait for the rollout.
-- [ ] Change `make web-dev` to reach the bridge through `kubectl port-forward`.
+1. [ ] Write `bridge/Dockerfile`: multi-stage build, static binary, distroless non-root base, base images pinned by digest.
+2. [ ] Write `deploy/bridge/`: the namespace `powd`, a ServiceAccount, a Service, and a Deployment. Its liveness probe uses `/healthz` and its readiness probe uses `/readyz`.
+3. [ ] Add a Role in `arena` that allows `get`, `list`, `watch`, `delete` on pods. Bind it to the ServiceAccount.
+4. [ ] Add a ClusterRole that allows `get`, `list`, `watch` on nodes. Bind it to the ServiceAccount.
+5. [ ] Set the security context from `.claude/rules/kubernetes.md`.
+6. [ ] Add `make bridge-up`: build the image with the git commit as its tag, `kind load docker-image`, apply, wait for the rollout.
+7. [ ] Change `make web-dev` to reach the bridge through `kubectl port-forward`. Add hadolint to CI and `docker` to `dependabot.yml`.
 
 ## Done when
 
 - [ ] `kubectl auth can-i delete pods -n arena --as=system:serviceaccount:powd:bridge` prints `yes`.
 - [ ] The same command with `-n kube-system` prints `no`.
 - [ ] `kubectl auth can-i delete deployments -n arena --as=system:serviceaccount:powd:bridge` prints `no`.
-- [ ] The game works end to end with the bridge running in the cluster.
+- [ ] With the bridge running in the cluster, shooting a cube terminates its pod, as in v0-09.
 
 ## Learn
 

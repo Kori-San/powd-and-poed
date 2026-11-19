@@ -1,4 +1,4 @@
-# v1-09 Add touch and gamepad
+# v1-08 Add touch and gamepad
 
 Size: M
 Needs: v1-05
@@ -9,17 +9,17 @@ The game is fully playable with one thumb on a phone, and with a gamepad.
 
 ## Why
 
-Most people will open the demo link on a phone. If it does not work there, they leave.
+A link shared in a chat gets opened on a phone. The game has to work there.
 
 ## Steps
 
-- [ ] Read `.claude/rules/web.md`, section "Input".
-- [ ] Add an input layer that maps each device to actions for a player slot.
-- [ ] Touch: drag anywhere to move. Fire is automatic. One button scans and one pauses.
-- [ ] Gamepad: use the mapping in `DESIGN.md`.
-- [ ] Make the play field and HUD fit portrait and landscape, and respect the safe-area insets.
-- [ ] Pause when the tab is hidden or a gamepad disconnects.
-- [ ] Unit test the mapping. Test by hand on one iPhone and one Android phone.
+1. [ ] Read `.claude/rules/web.md`, section "Input".
+2. [ ] Add an input layer that maps each device to actions for a player slot.
+3. [ ] Touch: drag anywhere to move. Fire is automatic. One button scans and one pauses.
+4. [ ] Gamepad: use the mapping in `DESIGN.md`.
+5. [ ] Make the play field and HUD fit portrait and landscape, and respect the safe-area insets.
+6. [ ] Pause when the tab is hidden or a gamepad disconnects.
+7. [ ] Unit test the mapping. Test by hand on one iPhone and one Android phone.
 
 ## Done when
 

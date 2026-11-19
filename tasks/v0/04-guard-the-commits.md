@@ -13,12 +13,12 @@ The commit convention and the writing rules only hold if a machine checks them.
 
 ## Steps
 
-- [ ] Add lefthook to `mise.toml`. Create `lefthook.yml`.
-- [ ] Add a `pre-commit` hook that runs `node scripts/check-text.mjs` on the staged files.
-- [ ] Write `scripts/check-commit.mjs`. It checks the subject against the format in `.claude/rules/git.md`. It reads the allowed emoji from `docs/GITMOJI.md`.
-- [ ] Add a `commit-msg` hook that runs `scripts/check-commit.mjs`, then `node scripts/check-text.mjs --message` on the message file.
-- [ ] Add `make setup` that installs the hooks.
-- [ ] Write `CONTRIBUTING.md`: how to set up, how to commit, how to open a pull request. Under 40 lines.
+1. [ ] Add lefthook to `mise.toml`. Create `lefthook.yml`.
+2. [ ] Add a `pre-commit` hook that runs `node scripts/check-text.mjs --staged`.
+3. [ ] Write `scripts/check-commit.mjs`. It checks the subject against the format in `.claude/rules/git.md`. It reads the allowed emoji from `docs/GITMOJI.md`.
+4. [ ] Add a `commit-msg` hook that runs `scripts/check-commit.mjs`, then `node scripts/check-text.mjs --message` on the message file.
+5. [ ] Add `make setup` that installs the hooks.
+6. [ ] Write `CONTRIBUTING.md`: how to set up, how to commit, how to open a pull request. Under 40 lines.
 
 ## Done when
 

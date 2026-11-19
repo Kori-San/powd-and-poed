@@ -9,14 +9,14 @@ The sim build is live on a public URL, and CI redeploys it on every merge to `ma
 
 ## Why
 
-A link that works on a phone in one tap is the most useful thing in this repo for a recruiter.
+A link that works on a phone in one tap lets anyone try the game without installing anything.
 
 ## Steps
 
-- [ ] Add a GitHub Pages workflow: build `web/` with sim as the default mode, then deploy. Follow `.claude/rules/ci.md`.
-- [ ] Set the Vite `base` path for the Pages URL.
-- [ ] Add a Playwright smoke test: load the built site, start a sortie, get one kill. Run it before the deploy step.
-- [ ] Put the link at the top of the README.
+1. [ ] Add a GitHub Pages workflow: build `web/` with sim as the default mode, then deploy. Follow `.claude/rules/ci.md`.
+2. [ ] Set the Vite `base` path for the Pages URL.
+3. [ ] Add a Playwright smoke test: load the built site, start a sortie, get one kill. Run it before the deploy step.
+4. [ ] Put the link at the top of the README.
 
 ## Done when
 

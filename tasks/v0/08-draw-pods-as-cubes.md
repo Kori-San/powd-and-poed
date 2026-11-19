@@ -13,20 +13,20 @@ It proves the whole pipe before any gameplay exists: cluster, bridge, browser.
 
 ## Steps
 
-- [ ] Create `web/` with Vite, TypeScript in strict mode, and three.js. Look up the current versions first.
-- [ ] Proxy `/api` to the bridge in the Vite dev config, so the browser sees a single origin.
-- [ ] Write a `ClusterStore` in plain TypeScript with no three.js import. It applies stream events and holds pods and nodes.
-- [ ] Unit test the store with Vitest: snapshot, add, update, delete, reconnect.
-- [ ] Render one cube per pod, grouped by node. Grey for not ready, white for ready, red for terminating.
-- [ ] Show a text banner when the stream drops, and reconnect automatically.
-- [ ] Add `make web-dev`.
+1. [ ] Create `web/` with Vite, TypeScript in strict mode, and three.js. Look up the current versions first.
+2. [ ] Proxy `/api` to the bridge in the Vite dev config, so the browser sees a single origin. Add `make web-dev`.
+3. [ ] Write a `ClusterStore` in plain TypeScript with no three.js import. It applies stream events and holds pods and nodes.
+4. [ ] Unit test the store with Vitest: snapshot, add, update, delete, reconnect.
+5. [ ] Render one cube per pod, grouped by node. Grey for not ready, white for ready, red for terminating.
+6. [ ] Show a text banner when the stream drops, and reconnect automatically.
+7. [ ] Add Biome with `npm run lint`. Add a CI job: typecheck, lint, test. Add `npm` to `dependabot.yml`.
 
 ## Done when
 
 - [ ] With `make bridge-dev` and `make web-dev` running, the page shows 12 cubes grouped by node.
 - [ ] Delete a pod by hand. Its cube turns red, then disappears. A grey cube appears, then turns white.
 - [ ] Stop the bridge: the banner appears. Start it again: the cubes return without a page reload.
-- [ ] `npm test` and `npm run typecheck` pass in `web/`.
+- [ ] `npm run typecheck && npm run lint && npm test` pass in `web/`.
 
 ## Learn
 

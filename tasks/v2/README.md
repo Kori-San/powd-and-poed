@@ -14,7 +14,7 @@ These tasks were written long before the code. Re-read each one before you start
 - [ ] [v2-02 Cut draw calls](02-cut-draw-calls.md) (M)
 - [ ] [v2-03 Shrink the download](03-shrink-the-download.md) (M)
 - [ ] [v2-04 Adapt quality to the device](04-adapt-quality-to-the-device.md) (M)
-- [ ] [v2-05 Try WebGPU](05-try-webgpu.md) (M)
+- [ ] [v2-05 Try WebGPU](05-try-webgpu.md) (L)
 
 ### Resilience
 
@@ -36,21 +36,21 @@ These tasks were written long before the code. Re-read each one before you start
 - [ ] [v2-15 Sync a secret from outside](15-sync-a-secret-from-outside.md) (M)
 - [ ] [v2-16 Sign and attest images](16-sign-and-attest-images.md) (M)
 - [ ] [v2-17 Enforce policy at admission](17-enforce-policy-at-admission.md) (M)
-- [ ] [v2-18 Score the repo](18-score-the-repo.md) (S)
+- [ ] [v2-18 Score the repo](18-score-the-repo.md) (M)
 
 ### Online
 
-- [ ] [v2-19 Switch the stream to WebSocket](19-switch-the-stream-to-websocket.md) (M)
+- [ ] [v2-19 Switch the stream to WebSocket](19-switch-the-stream-to-websocket.md) (L)
 - [ ] [v2-20 Add online co-op](20-add-online-co-op.md) (L)
 - [ ] [v2-21 Protect the public bridge](21-protect-the-public-bridge.md) (M)
 - [ ] [v2-22 Provision a demo cluster on demand](22-provision-a-demo-cluster-on-demand.md) (L)
 - [ ] [v2-23 Expose it with TLS](23-expose-it-with-tls.md) (M)
 - [ ] [v2-24 Write the runbook and run a game day](24-write-the-runbook-and-run-a-game-day.md) (M)
-- [ ] [v2-25 Ship v2](25-ship-v2.md) (S)
+- [ ] [v2-25 Ship v2](25-ship-v2.md) (M)
 
 ## v2 is done when
 
-1. The benchmark holds its frame budget on a mid-range phone, and CI enforces it.
+1. The benchmark holds its frame budget on a mid-range phone, and CI enforces the size and draw-call budgets.
 2. The fleet survives a node drain and a rollout with 100.00% uptime.
 3. A dashboard, an SLO, and a trace exist for the kill loop.
 4. The cluster is deployed from git and only runs signed images.

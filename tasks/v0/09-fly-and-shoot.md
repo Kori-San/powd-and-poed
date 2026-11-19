@@ -13,13 +13,13 @@ This is the whole idea in its ugliest form. If it is fun with cubes, it is worth
 
 ## Steps
 
-- [ ] Add the player ship as a cone. Move with WASD or the arrow keys. Keep it inside the play area.
-- [ ] Fire with Space. Bullets come from a fixed pool. Nothing is allocated per shot.
-- [ ] Detect bullet hits with circle overlap on the play plane.
-- [ ] On a hit: flash the cube at once, mark it as hit, and send the kill request. Do not wait for the answer.
-- [ ] If the bridge answers 429, put the cube back to normal.
-- [ ] Show kills, pods ready, and nodes ready as plain text on screen.
-- [ ] Unit test movement bounds and hit detection.
+1. [ ] Add the player ship as a cone. Move with WASD or the arrow keys. Keep it inside the play area.
+2. [ ] Fire with Space. Bullets come from a fixed pool. Nothing is allocated per shot.
+3. [ ] Detect bullet hits with circle overlap on the play plane.
+4. [ ] On a hit: flash the cube at once, mark it as hit, and send the kill request. Do not wait for the answer.
+5. [ ] If the bridge answers 429, put the cube back to normal.
+6. [ ] Show kills, pods ready, and nodes ready as plain text on screen.
+7. [ ] Unit test movement bounds and hit detection.
 
 ## Done when
 

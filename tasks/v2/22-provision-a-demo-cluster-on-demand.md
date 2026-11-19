@@ -13,13 +13,13 @@ A cluster that runs all month costs money all month. One that exists for a two-h
 
 ## Steps
 
-- [ ] Compare providers on today's hourly price for three small nodes. Put the table in `docs/DECISIONS.md` with the date. Pick one.
-- [ ] Write the infrastructure with OpenTofu: nodes, network, firewall. Use remote state with locking.
-- [ ] Install Kubernetes: a managed service, or k3s on plain machines. Then bootstrap the GitOps controller, which installs the rest.
-- [ ] Credentials are short-lived where the provider allows it. None are in the repo.
-- [ ] Cost guard: a budget alert at the provider, and an automatic teardown after a set number of hours.
-- [ ] Add `make cloud-up`, `make cloud-down`, and `make cloud-cost`.
-- [ ] Measure the cost of one two-hour demo and write it in the README.
+1. [ ] Compare providers on today's hourly price for three small nodes. Put the table in `docs/DECISIONS.md` with the date. Pick one.
+2. [ ] Write the infrastructure with OpenTofu: nodes, network, firewall. Use remote state with locking.
+3. [ ] Install Kubernetes: a managed service, or k3s on plain machines. Then bootstrap the GitOps controller, which installs the rest.
+4. [ ] Credentials are short-lived where the provider allows it. None are in the repo.
+5. [ ] Cost guard: a budget alert at the provider, and an automatic teardown after a set number of hours.
+6. [ ] Add `make cloud-up`, `make cloud-down`, and `make cloud-cost`.
+7. [ ] Measure the cost of one two-hour demo and write it in the README.
 
 ## Done when
 
