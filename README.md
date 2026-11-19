@@ -36,7 +36,7 @@ Details are in [ARCHITECTURE.md](ARCHITECTURE.md) and [DESIGN.md](DESIGN.md).
 
 | Version | Goal | State |
 |---|---|---|
-| [v0](tasks/v0/README.md) | Prove the loop with cubes on a local cluster | Not started |
+| [v0](tasks/v0/README.md) | Prove the loop with cubes on a local cluster | In progress |
 | [v1](tasks/v1/README.md) | A game that teaches: 1970s film look, sound, two players, scanner | Not started |
 | [v2](tasks/v2/README.md) | Fast, observable, deployed by GitOps, online co-op | Not started |
 

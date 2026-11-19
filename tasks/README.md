@@ -2,7 +2,7 @@
 
 The whole roadmap lives here. One file per task. One task at a time.
 
-Now: [v0-01 Bootstrap the repo](v0/01-bootstrap-the-repo.md)
+Now: [v0-02 Start a local cluster](v0/02-start-local-cluster.md)
 
 ## How to use this
 

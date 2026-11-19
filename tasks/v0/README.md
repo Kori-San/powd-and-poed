@@ -6,7 +6,7 @@ v0 has cubes, one player, a keyboard, and a local cluster, and nothing more.
 
 ## Board
 
-- [ ] [v0-01 Bootstrap the repo](01-bootstrap-the-repo.md) (S)
+- [x] [v0-01 Bootstrap the repo](01-bootstrap-the-repo.md) (S)
 - [ ] [v0-02 Start a local cluster](02-start-local-cluster.md) (S)
 - [ ] [v0-03 Deploy the arena](03-deploy-the-arena.md) (S)
 - [ ] [v0-04 Guard the commits](04-guard-the-commits.md) (S)

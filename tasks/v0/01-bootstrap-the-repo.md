@@ -21,9 +21,9 @@ Pinned tools make the project run the same way on your laptop, in CI, and for an
 
 ## Done when
 
-- [ ] `mise install` exits 0 on a clean clone.
-- [ ] `make help` lists `help` and `check`.
-- [ ] `make check` exits 0.
+- [x] `mise install` exits 0 on a clean clone.
+- [x] `make help` lists `help` and `check`.
+- [x] `make check` exits 0.
 
 ## Learn
 
