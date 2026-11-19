@@ -6,4 +6,5 @@ Ideas get sorted when a version ships. Each one becomes a task or gets deleted.
 
 ## Unsorted
 
-- (empty)
+- Check whether Dependabot can bump `mise.toml`. If it cannot, decide who bumps the tool pins.
+- Set `locked = true` in `mise.toml`, so `mise install` refuses a tool that is missing from `mise.lock`.
