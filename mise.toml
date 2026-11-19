@@ -1,0 +1,8 @@
+# Exact versions, so laptops and CI run the same tools.
+# How to pick a version: .claude/rules/dependencies.md
+
+[tools]
+node = "26.13.1"
+go = "1.27.4"
+kubectl = "1.37.2"
+kind = "0.33.0"
