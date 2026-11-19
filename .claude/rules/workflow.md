@@ -17,7 +17,7 @@ How to pick a task, work on it, and finish it. One task at a time.
 ## Before you say done
 
 1. Run every "Done when" line and read the output.
-2. Run `make check`. Until task v0-01 creates it, run `node scripts/check-text.mjs`.
+2. Run `make check`.
 3. Update the docs the change touches:
 
 | You changed | Update |

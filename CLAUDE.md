@@ -34,7 +34,7 @@ Rules without a path load every session. Rules for a folder load when you open a
 | Command | Does |
 |---|---|
 | `node scripts/check-text.mjs` | Checks every file for banned characters and phrases |
-| `make help` | Lists all other commands, once task v0-01 is done |
+| `make help` | Lists all other commands |
 
 ## The six rules that matter most
 
