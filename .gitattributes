@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.glb binary
+*.ktx2 binary
+*.hdr binary
+*.exr binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.ogg binary
+*.mp3 binary
+*.woff2 binary
