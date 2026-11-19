@@ -2,18 +2,22 @@
 // Fails when a text file contains a character or phrase the writing rules ban.
 // Rules live in .claude/rules/writing.md.
 //
-//   node scripts/check-text.mjs                 every git-tracked file
+//   node scripts/check-text.mjs                 every file git tracks or would track
 //   node scripts/check-text.mjs a.md b.ts       only these files
-//   node scripts/check-text.mjs --hook          Claude Code PostToolUse hook (reads JSON on stdin)
+//   node scripts/check-text.mjs --staged        the staged version of each staged file
 //   node scripts/check-text.mjs --message FILE  a commit message file (emoji allowed)
+//   node scripts/check-text.mjs --hook          Claude Code PostToolUse hook (reads JSON on stdin)
 //
-// Exit codes: 0 clean, 1 violations, 2 violations in hook mode (Claude Code shows stderr to the agent).
+// Exit codes: 0 clean, 1 problems found, 3 the check could not run.
+// Hook mode exits 2 for both failures, because Claude Code shows stderr to the agent only on exit 2.
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { relative, resolve, sep } from 'node:path';
 
 const BANNED = new Map([
+  [0x2010, ['unicode hyphen', 'use "-"']],
+  [0x2011, ['non-breaking hyphen', 'use "-"']],
   [0x2012, ['figure dash', 'use "-"']],
   [0x2013, ['en dash', 'use "-" or the word "to"']],
   [0x2014, ['em dash', 'use a period, a comma, or parentheses']],
@@ -24,9 +28,12 @@ const BANNED = new Map([
   [0x201d, ['curly double quote', 'use "']],
   [0x2026, ['ellipsis character', 'use "..." or cut the sentence']],
   [0x2022, ['bullet character', 'use a Markdown list']],
+  [0x2023, ['bullet character', 'use a Markdown list']],
+  [0x25e6, ['bullet character', 'use a Markdown list']],
   [0x00b7, ['middle dot', 'use a comma or a new line']],
   [0x2248, ['almost-equal sign', 'write "about"']],
   [0x2713, ['check mark', 'write "yes" or "done"']],
+  [0x2715, ['cross mark', 'write "no"']],
   [0x2717, ['cross mark', 'write "no"']],
   [0x2718, ['cross mark', 'write "no"']],
   [0x00a0, ['non-breaking space', 'use a normal space']],
@@ -39,7 +46,11 @@ const BANNED = new Map([
 
 const BANNED_RANGES = [
   [0x2190, 0x21ff, 'arrow', 'use "->" or a word'],
+  [0x2794, 0x2794, 'arrow', 'use "->" or a word'],
+  [0x2798, 0x27af, 'arrow', 'use "->" or a word'],
+  [0x27b1, 0x27be, 'arrow', 'use "->" or a word'],
   [0x27f0, 0x27ff, 'arrow', 'use "->" or a word'],
+  [0x2b95, 0x2b95, 'arrow', 'use "->" or a word'],
   [0x2500, 0x257f, 'box-drawing character', 'use a list or a table'],
 ];
 
@@ -77,26 +88,24 @@ const SKIPPED = [
   /(^|\/)dist\//,
   /(^|\/)(package-lock\.json|pnpm-lock\.yaml|go\.sum)$/,
   /(^|\/)LICENSE(\.[a-z]+)?$/i,
+  /(^|\/)CODE_OF_CONDUCT\.md$/,
   /^web\/public\/assets\//,
 ];
 
-const EMOJI = /\p{Extended_Pictographic}/u;
+const EMOJI = /[\p{Extended_Pictographic}\p{Regional_Indicator}\p{Emoji_Modifier}]/u;
 const EMOJI_EXEMPT = new Set([0x00a9, 0x00ae, 0x2122]); // copyright, registered, trademark
 const JOINERS = new Set([0x200d, 0xfe0f]); // only meaningful inside an emoji sequence
 
-const root = repoRoot();
 const args = process.argv.slice(2);
-const mode = args[0] === '--hook' ? 'hook' : args[0] === '--message' ? 'message' : 'files';
+const mode = ['--hook', '--message', '--staged'].includes(args[0]) ? args[0].slice(2) : 'files';
+const root = repoRoot();
 
-let problems = [];
-if (mode === 'hook') {
-  const file = hookFile();
-  if (file) problems = checkFile(file);
-} else if (mode === 'message') {
-  problems = checkText(readFileSync(args[1], 'utf8'), args[1], true);
-} else {
-  const files = args.length > 0 ? args : trackedFiles();
-  problems = files.flatMap(checkFile);
+let problems;
+try {
+  problems = run();
+} catch (error) {
+  console.error(`check-text could not run: ${error.message}`);
+  process.exit(mode === 'hook' ? 2 : 3);
 }
 
 if (problems.length > 0) {
@@ -105,20 +114,45 @@ if (problems.length > 0) {
   process.exit(mode === 'hook' ? 2 : 1);
 }
 
+function run() {
+  if (mode === 'hook') {
+    const file = hookFile();
+    return file ? checkFile(file) : [];
+  }
+  if (mode === 'message') {
+    if (!args[1]) throw new Error('usage: check-text.mjs --message FILE');
+    const message = commitMessage(readFileSync(args[1], 'utf8'));
+    return checkText(message, args[1], { emojiAllowed: true, phrasesAllowed: false });
+  }
+  if (mode === 'staged') return stagedFiles().flatMap(checkStaged);
+  if (args.length > 0) return args.flatMap(checkNamedFile);
+  return trackedFiles().flatMap(checkFile);
+}
+
 function repoRoot() {
   try {
-    return execFileSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' }).trim();
+    return execFileSync('git', ['rev-parse', '--show-toplevel'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
   } catch {
     return process.cwd();
   }
 }
 
+function gitList(gitArgs) {
+  const out = execFileSync('git', gitArgs, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return out.split('\0').filter(Boolean);
+}
+
 function trackedFiles() {
-  const out = execFileSync('git', ['ls-files', '-z', '--cached', '--others', '--exclude-standard'], {
-    cwd: root,
-    encoding: 'utf8',
-  });
-  return out.split('\0').filter(Boolean).map((file) => resolve(root, file));
+  return gitList(['ls-files', '-z', '--cached', '--others', '--exclude-standard']).map((name) =>
+    resolve(root, name),
+  );
+}
+
+function stagedFiles() {
+  return gitList(['diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z']);
 }
 
 function hookFile() {
@@ -130,20 +164,63 @@ function hookFile() {
   }
 }
 
-function checkFile(file) {
-  const absolute = resolve(file);
-  const name = relative(root, absolute).split(sep).join('/');
-  if (name.startsWith('..')) return []; // outside the repo
-  if (SKIPPED.some((pattern) => pattern.test(name))) return [];
-  if (!existsSync(absolute) || !statSync(absolute).isFile()) return [];
-  const bytes = readFileSync(absolute);
-  if (bytes.subarray(0, 8000).includes(0)) return []; // binary
-  const emojiAllowed = EMOJI_ALLOWED.some((pattern) => pattern.test(name));
-  const phrasesAllowed = PHRASES_ALLOWED.some((pattern) => pattern.test(name));
-  return checkText(bytes.toString('utf8'), name, emojiAllowed, phrasesAllowed);
+// Keeps what git keeps: no comment lines, nothing below the scissors line.
+// Dropped lines become empty so the reported line numbers still match the file.
+function commitMessage(text) {
+  const kept = [];
+  for (const line of text.split('\n')) {
+    if (line.startsWith('# ------------------------ >8')) break;
+    kept.push(line.startsWith('#') ? '' : line);
+  }
+  return kept.join('\n');
 }
 
-function checkText(text, name, emojiAllowed, phrasesAllowed = false) {
+function repoName(file) {
+  return relative(root, resolve(file)).split(sep).join('/');
+}
+
+function matches(patterns, name) {
+  return patterns.some((pattern) => pattern.test(name));
+}
+
+function skip(message) {
+  console.error(message);
+  return [];
+}
+
+function checkNamedFile(file) {
+  if (repoName(file).startsWith('..')) return skip(`skipped, outside the repo: ${file}`);
+  if (!existsSync(resolve(file))) return skip(`skipped, not found: ${file}`);
+  return checkFile(file);
+}
+
+function checkFile(file) {
+  const absolute = resolve(file);
+  const name = repoName(file);
+  if (name.startsWith('..') || matches(SKIPPED, name)) return [];
+  if (!existsSync(absolute) || !statSync(absolute).isFile()) return [];
+  return checkBytes(readFileSync(absolute), name);
+}
+
+function checkStaged(name) {
+  if (matches(SKIPPED, name)) return [];
+  const bytes = execFileSync('git', ['show', `:${name}`], {
+    cwd: root,
+    maxBuffer: 64 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  return checkBytes(bytes, name);
+}
+
+function checkBytes(bytes, name) {
+  if (bytes.subarray(0, 8000).includes(0)) return []; // binary
+  return checkText(bytes.toString('utf8'), name, {
+    emojiAllowed: matches(EMOJI_ALLOWED, name),
+    phrasesAllowed: matches(PHRASES_ALLOWED, name),
+  });
+}
+
+function checkText(text, name, { emojiAllowed, phrasesAllowed }) {
   const found = [];
   text.split('\n').forEach((line, index) => {
     let column = 0;
@@ -152,12 +229,12 @@ function checkText(text, name, emojiAllowed, phrasesAllowed = false) {
       const code = char.codePointAt(0);
       const where = `${name}:${index + 1}:${column}`;
       const hex = `U+${code.toString(16).toUpperCase().padStart(4, '0')}`;
-      const banned = bannedCharacter(code);
-      if (banned) {
-        found.push(`${where} ${banned[0]} (${hex}): ${banned[1]}`);
-      } else if (!emojiAllowed && (JOINERS.has(code) || isEmoji(char, code))) {
-        found.push(`${where} emoji (${hex}): emoji belong in commit subjects only`);
+      if (JOINERS.has(code) || isEmoji(char, code)) {
+        if (!emojiAllowed) found.push(`${where} emoji (${hex}): emoji belong in commit subjects only`);
+        continue;
       }
+      const banned = bannedCharacter(code);
+      if (banned) found.push(`${where} ${banned[0]} (${hex}): ${banned[1]}`);
     }
     if (phrasesAllowed) return;
     for (const pattern of PHRASES) {
