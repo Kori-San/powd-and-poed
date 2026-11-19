@@ -5,6 +5,15 @@ You shoot it, the pod is deleted for real, and the cluster brings it back.
 
 > Status: planning. Nothing is playable yet. The roadmap is in [tasks/](tasks/README.md).
 
+## Quick start
+
+You need Git and Make.
+
+1. Install [mise](https://mise.jdx.dev) and activate it in your shell.
+2. Clone this repo and `cd` into it.
+3. Run `mise install`. It installs each tool at the version pinned in `mise.toml`.
+4. Run `make help`. It lists every command you can run.
+
 ## Why
 
 The idea comes from a story. An engineer hands their boss a space shooter. The boss plays for a while and has fun. Then the engineer says: "Each ship you destroyed was a pod in production. The service never went down."
