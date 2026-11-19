@@ -3,7 +3,7 @@
 One row per choice between real options. Add new rows at the bottom.
 To change a decision, add a new row that names the one it replaces. Do not edit old rows.
 
-All rows below date from 2026-11-19, before any code was written.
+Rows D-01 to D-18 date from 2026-11-19, before any code was written. Later rows name the task that added them.
 
 | ID | Decision | Why | Cost |
 |---|---|---|---|
@@ -25,3 +25,4 @@ All rows below date from 2026-11-19, before any code was written.
 | D-16 | Git hooks run through lefthook, and a local script checks commit messages. | lefthook is one binary with no runtime. The commitlint gitmoji packages are unmaintained. | The repo owns the check script. |
 | D-17 | Assets are CC0 first, and none are generated. | A public portfolio needs clean rights and one consistent look. | Fewer assets to choose from. |
 | D-18 | The code is under the MIT License. | Chosen by the owner when the repo was created. | None. |
+| D-19 | `mise.lock` covers Linux and macOS on x64 and arm64. Added in v0-01. | The Makefile needs a POSIX shell. Node builds for Alpine (musl) come from a separate, unofficial host. | Native Windows and Alpine are not supported. On Windows, use WSL. |
