@@ -8,6 +8,8 @@ paths:
 Rules for the game in `web/`. Game logic stays free of three.js.
 Nothing in the frame loop allocates memory or waits for the network.
 
+v0 is a proof of concept. "Layout", "Game loop", "Color and light", and "Sizing" apply from task v1-01.
+
 ## Stack
 
 - TypeScript in strict mode, three.js, Vite, Vitest. Package manager: npm.
@@ -19,7 +21,8 @@ Nothing in the frame loop allocates memory or waits for the network.
 
 three.js renames things often. Your memory of it is probably out of date.
 
-- Read the migration guide for the version in `web/package.json` before using a loader, a pass, or a helper: https://github.com/mrdoob/three.js/wiki/Migration-Guide
+- Before you use a loader, a pass, or a helper, read the migration guide for the installed version.
+- The guide: https://github.com/mrdoob/three.js/wiki/Migration-Guide
 - Known as of r187: `HDRLoader` replaced `RGBELoader`. `Timer` replaced `Clock`. `PCFSoftShadowMap` is deprecated.
 
 ## Layout

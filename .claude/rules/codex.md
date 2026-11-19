@@ -17,10 +17,13 @@ id: pod
 title: Pod
 since: v0
 in_game: Fighter
+unlock: scan fighter
 docs: https://kubernetes.io/docs/concepts/workloads/pods/
 command: kubectl get pods -n arena
 ---
 ```
+
+`unlock` says what unlocks the entry in play. It is `scan fighter`, `scan carrier`, `scan beacon`, or a first-time event such as `first respawn`.
 
 ## Body
 

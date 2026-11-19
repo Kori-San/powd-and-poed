@@ -18,7 +18,7 @@ When two ideas conflict, the one higher in this list wins.
 1. You shoot a fighter.
 2. It flashes and breaks apart at once.
 3. The bridge deletes the pod.
-4. The Deployment sees one pod missing and starts a new one.
+4. The ReplicaSet behind the Deployment sees one pod missing and starts a new one.
 5. The new pod becomes ready and a new fighter warps in.
 
 One loop takes a few seconds. The uptime meter should not move.
@@ -52,7 +52,7 @@ One or two players. Player two can join at any time.
 |---|---|---|
 | Fighter | Pod | v0 |
 | Carrier | Node | v0 |
-| Uptime meter | Share of good requests to the Service | v0 |
+| Uptime meter | Share of good requests to the Service in the last 60 seconds | v0 |
 | Squadron markings | Deployment and its ReplicaSet | v1 |
 | Warp-in ghost | Pod that is pending or not ready yet | v1 |
 | Drifting wreck | Pod that is terminating | v1 |
@@ -87,12 +87,13 @@ Touch is single player. In v0 the arrows also move Powd.
 - Hold scan. Time slows down and the nearest target gets a data card.
 - The card shows live values: kind, name, node, phase, age, restarts.
 - One line says what the thing is. One line says why it came back.
-- The first scan of each kind unlocks its codex entry.
+- Scanning a kind of thing for the first time unlocks its codex entry. Other entries unlock on a first-time event.
 - The first time something happens (first respawn, first failed request), a one-line callout names it.
 - After a run, a recap lists what you saw and asks one question about it.
 
-This follows what research on learning games recommends. The lesson sits inside the core mechanic, and information arrives at the moment the player needs it.
-The recap question makes the player recall what they saw.
+Two findings shape this design.
+Learning content works best inside the core mechanic ([Habgood and Ainsworth, 2011](https://shura.shu.ac.uk/3556)).
+Recalling something from memory helps you keep it more than reading it again ([Roediger and Karpicke, 2006](https://pubmed.ncbi.nlm.nih.gov/16507066/)).
 
 ## Look
 
@@ -110,7 +111,7 @@ A 1970s space opera shot on film. The reference is the era and its techniques. N
 - The HUD is drawn like a vector display of the era: thin lines and no filled panels.
 - Each layer has one phosphor color. The game layer is amber `#FFB000`. The scanner layer is blue-white `#CFE8FF`.
 - Pink and green belong to the players' shots. The HUD never uses them.
-- Titles use Michroma. Data uses Share Tech Mono. Both are under the SIL Open Font License. Task v1-11 confirms the choice.
+- Titles use Michroma. Data uses Share Tech Mono. Both are under the SIL Open Font License. Task v1-12 confirms the choice.
 - Always on screen: pods ready, nodes ready, uptime, kills, and `LIVE` or `SIM`.
 - HUD text is short and uppercase. Digits are fixed-width, so numbers do not shift as they change.
 

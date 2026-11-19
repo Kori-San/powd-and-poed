@@ -6,7 +6,7 @@ Commits use gitmoji. Each task gets one branch and one pull request.
 
 Commits follow the gitmoji spec: https://gitmoji.dev/specification
 
-```
+```text
 <emoji> <Message>
 <emoji> (<scope>): <Message>
 ```
@@ -18,7 +18,7 @@ Commits follow the gitmoji spec: https://gitmoji.dev/specification
 - A commit has one purpose. If it needs two emoji, split it into two commits.
 - The body is optional. Use it to say why the change was needed.
 
-```
+```text
 ✨ (bridge): Stream pod events over SSE
 🐛 (web): Stop a bullet from hitting the same pod twice
 🧱 (deploy): Add the fleet Deployment and Service

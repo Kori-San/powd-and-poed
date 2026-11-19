@@ -8,6 +8,8 @@ paths:
 
 `DESIGN.md` says what the game looks like. This file lists what makes a game look generated or cheap, and what to do instead.
 
+v0 is exempt. It draws cubes and plain text on purpose. These rules apply from task v1-01.
+
 ## Generated-looking UI
 
 Never ship any of these:

@@ -9,16 +9,17 @@ You shoot it, the pod is deleted for real, and the cluster brings it back.
 
 The idea comes from a story. An engineer hands their boss a space shooter. The boss plays for a while and has fun. Then the engineer says: "Each ship you destroyed was a pod in production. The service never went down."
 
-This repo builds that game as a way to learn platform engineering and to demonstrate it: Kubernetes, least-privilege access, CI and supply-chain security, observability, GitOps.
+This repo builds that game as a way to learn platform engineering and to demonstrate it.
+It covers Kubernetes, least-privilege access, CI and supply-chain security, observability, and GitOps.
 
-## How it works
+## How it will work
 
 1. Each fighter on screen is one pod in the `arena` namespace.
 2. A hit asks a small Go service, the bridge, to delete that pod.
-3. The Deployment creates a replacement, and a new fighter warps in.
+3. The ReplicaSet behind the Deployment creates a replacement, and a new fighter warps in.
 4. A meter shows the share of requests the service still answered.
 
-A scanner mode explains each thing you hit: pod, node, Deployment, Service, and more.
+A scanner mode will explain what you hit: a pod, a node, or the Service in front of them.
 
 Details are in [ARCHITECTURE.md](ARCHITECTURE.md) and [DESIGN.md](DESIGN.md).
 

@@ -18,6 +18,7 @@ This covers every word a person reads: docs, tasks, HUD text, codex entries, cod
 - Use active voice, present tense, and "you".
 - Write "for example", not "e.g.".
 - Files of the same kind follow the same template.
+- Task files are the exception on list length. Their sections are always lists, so every task has the same shape.
 
 ## Characters
 

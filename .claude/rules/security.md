@@ -7,7 +7,7 @@ This project deletes things in real clusters. Follow these rules without excepti
 - The browser never talks to the Kubernetes API. Only the bridge does.
 - The bridge deletes pods in the `arena` namespace only. No flag or variable may widen that.
 - The bridge acts on a UID it already holds in its cache. It never deletes by a name sent by a client.
-- Every kill passes the rate limit first.
+- Every kill request passes the rate limit before anything else happens.
 - The bridge uses its mounted, short-lived ServiceAccount token. Never create a long-lived token Secret. Never send a token to the browser.
 
 ## RBAC
@@ -18,8 +18,16 @@ This project deletes things in real clusters. Follow these rules without excepti
 
 ## Your own cluster access
 
-- Every `kubectl`, `helm`, and `kind` call in the Makefile and in scripts names its target: `--context kind-powd`.
-- Never rely on the current kubectl context.
+The Makefile and every script name their cluster on each call. They never rely on the current context.
+
+| Tool | Flag |
+|---|---|
+| kubectl | `--context kind-powd` |
+| helm | `--kube-context kind-powd` |
+| kind | `--name powd` |
+
+- When you run a command from a task yourself, add the flag.
+- Commands printed in tasks are short on purpose. They assume the owner's current context is `kind-powd`.
 - Never run a delete, drain, or uninstall against a cluster this repo did not create. Ask first.
 
 ## Secrets

@@ -14,7 +14,7 @@ Nothing yet. The first assets arrive in v1.
 
 ## Fonts
 
-Nothing yet. The HUD fonts arrive in task v1-11.
+Nothing yet. The HUD fonts arrive in task v1-12.
 
 | Font | Author | Source | License |
 |---|---|---|---|

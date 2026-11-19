@@ -10,7 +10,8 @@ paths:
 ## Every workload
 
 - Labels: `app.kubernetes.io/name`, `app.kubernetes.io/component`, and `app.kubernetes.io/part-of: powd-and-poed`.
-- The image is pinned by tag and digest: `name:1.2.3@sha256:...`. Never `latest`.
+- A released image is pinned by tag and digest: `name:1.2.3@sha256:...`. Never `latest`.
+- An image built locally for `kind-powd` uses the git commit as its tag and `imagePullPolicy: IfNotPresent`.
 - Every container has CPU and memory requests, and a memory limit.
 - Every container has a readiness probe and a liveness probe.
 - `automountServiceAccountToken: false`, unless the pod calls the Kubernetes API. Only the bridge does.
@@ -31,7 +32,9 @@ securityContext:
   readOnlyRootFilesystem: true
 ```
 
-`readOnlyRootFilesystem` is not part of the standard. We set it anyway.
+`readOnlyRootFilesystem` is not part of the standard. We set it anyway. Mount an `emptyDir` on any path the app must write to.
+
+If the image names its user instead of numbering it, also set `runAsUser` to the numeric id. Without it the container does not start.
 
 ## Namespaces
 
@@ -64,6 +67,8 @@ kube-linter lint <files>
 kubectl apply --dry-run=server -f <files> --context kind-powd
 ```
 
+Custom resources such as `HTTPRoute` need their own schemas. Pass them to kubeconform with `-schema-location`.
+
 ## Teach
 
-A resource kind that is new to this repo needs a codex entry in the same pull request. See `codex.md`.
+From task v1-14 on, a resource kind that is new to this repo needs a codex entry in the same pull request. See `codex.md`.

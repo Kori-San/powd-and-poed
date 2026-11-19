@@ -45,7 +45,7 @@ flowchart LR
 
 1. A bullet hits a fighter. The game shows the hit in the same frame.
 2. The game sends `POST /api/kill` with the pod UID.
-3. The bridge checks the UID against its cache and the rate limit.
+3. The bridge applies the rate limit, then looks the UID up in its cache.
 4. The bridge asks the API server to delete the pod.
 5. The API server marks the pod as terminating. The bridge streams that change.
 6. The ReplicaSet controller counts one pod too few and creates a new one.
@@ -103,18 +103,30 @@ Body: `{"uid": "<pod uid>"}`.
 | 409 | The pod is already terminating |
 | 429 | Rate limit hit. See the `Retry-After` header |
 
+### Health
+
+`GET /healthz` says the process is alive. `GET /readyz` says the informer caches are synced.
+
 ### Changing the contract
 
 Change this file, the bridge, and the simulator in the same pull request.
 Raise `protocol` when an old client would break.
 
+## Measures
+
+| HUD value | Definition |
+|---|---|
+| `UPTIME` | Good probe requests divided by all probe requests, over the last 60 seconds |
+| `FAILED` | Failed probe requests since the bridge started |
+| `RECOVERY` | Time from a kill request until the next new pod is ready. New pods are matched to kills in order, oldest kill first. |
+
 ## Safety model
 
 1. The browser never reaches the Kubernetes API. Only the bridge does.
-2. The bridge identity can read and delete pods in `arena` and read nodes. Nothing else.
+2. The bridge identity can read and delete pods in `arena`, and read nodes. It has no other permission.
 3. A client sends a UID. The bridge only accepts UIDs it already saw in `arena`.
-4. Kills are rate limited in the bridge.
-5. Local commands always name their cluster with `--context kind-powd`.
+4. Every kill request passes a rate limit before anything else happens.
+5. The Makefile and scripts always name their cluster. They never rely on the current kubectl context.
 6. The repo holds no secrets and no `.env` files.
 
 ## Modes
